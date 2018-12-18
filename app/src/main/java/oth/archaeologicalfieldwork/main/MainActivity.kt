@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_main)
 
         //sites = SitesJSONStore(applicationContext)
-        //placemarks = FieldStoreRoom(applicationContext)
-        //placemarks = PlacemarkFireStore(applicationContext)
+        //sites = FieldStoreRoom(applicationContext)
+        //sites = PlacemarkFireStore(applicationContext)
 
         info("Main Activity started..")
     }
