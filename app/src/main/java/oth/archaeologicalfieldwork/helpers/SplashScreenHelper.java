@@ -18,6 +18,7 @@ public class SplashScreenHelper implements Application.ActivityLifecycleCallback
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
         // apply the actual theme
         activity.setTheme(R.style.AppTheme);
+
     }
 
     @Override
