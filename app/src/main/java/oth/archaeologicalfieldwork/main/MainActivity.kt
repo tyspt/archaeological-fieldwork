@@ -1,9 +1,10 @@
-package oth.archaeologicalfieldwork
+package oth.archaeologicalfieldwork.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
+import oth.archaeologicalfieldwork.R
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
 
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_main)
 
         //sites = SitesJSONStore(applicationContext)
-        //placemarks = PlacemarkStoreRoom(applicationContext)
+        //placemarks = FieldStoreRoom(applicationContext)
         //placemarks = PlacemarkFireStore(applicationContext)
 
         info("Main Activity started..")
