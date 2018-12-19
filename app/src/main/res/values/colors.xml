@@ -2,6 +2,6 @@
 <resources>
     <color name="colorPrimary">#ffee58</color>
     <color name="colorPrimaryDark">#c9bc1f</color>
-    <color name="colorAccent">#ffff8b</color>
+    <color name="colorAccent">#4c90af</color>
     <color name="colorActionBarText">#757575</color>
 </resources>

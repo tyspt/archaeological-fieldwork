@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.views
+package oth.archaeologicalfieldwork.views.sitelist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +19,13 @@ class SiteAdapter constructor(
 ) : RecyclerView.Adapter<SiteAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        return MainHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_site, parent, false))
+        return MainHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.card_site,
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
