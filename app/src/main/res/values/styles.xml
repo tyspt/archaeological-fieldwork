@@ -20,16 +20,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="actionBarStyle">@style/CustomActionBar</item>
-    </style>
-
-    <style name="CustomActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
-        <item name="titleTextStyle">@style/CustomTitleTextStyle</item>
-    </style>
-
-    <style name="CustomTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/colorActionBarText</item>
     </style>
 
 </resources>
