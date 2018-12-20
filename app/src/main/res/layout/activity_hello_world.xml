@@ -13,15 +13,4 @@
             android:text="Hello World"
             android:ems="10"
             android:id="@+id/editText"/>
-
-    <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <LinearLayout android:id="@+id/site_image_gallery" android:layout_width="wrap_content"
-                      android:layout_height="match_parent"
-                      android:orientation="horizontal"/>
-    </HorizontalScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
