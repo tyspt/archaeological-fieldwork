@@ -1,10 +1,13 @@
 package oth.archaeologicalfieldwork.views.site
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_show_site.*
+import kotlinx.android.synthetic.main.content_show_site.*
 import org.jetbrains.anko.AnkoLogger
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.models.SiteModel
@@ -17,11 +20,15 @@ class SiteView : AppCompatActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_site)
-        //toolbarAdd.title = title
-        //setSupportActionBar(toolbarAdd)
+
+        //toolbar_show_site.title = title
+        setSupportActionBar(toolbar_show_site)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
 
         presenter = SitePresenter(this)
     }
+
 
     fun showSite(site: SiteModel) {
         siteTitle.text = site.title
@@ -36,6 +43,23 @@ class SiteView : AppCompatActivity(), AnkoLogger {
             imageView.setImageResource(R.drawable.logo)
             gallery.addView(view)
         }
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_edit, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            //R.id.item_add -> presenter.doAddPlacemark()
+            //R.id.item_map -> presenter.doShowPlacemarksMap()
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

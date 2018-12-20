@@ -2,6 +2,7 @@ package oth.archaeologicalfieldwork.views.sitelist
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +20,7 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sitelist)
         //toolbarMain.title = title
-        //setSupportActionBar(toolbarMain)
+        setSupportActionBar(toolbar_main)
 
         info("Sites List Activity started..")
 
@@ -28,6 +29,10 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = SiteAdapter(presenter.getSite(), this)
         recyclerView.adapter?.notifyDataSetChanged()
+
+        btn_add_list.setOnClickListener { view ->
+            presenter.doAddSite()
+        }
     }
 
     override fun onSiteClick(site: SiteModel) {
@@ -35,10 +40,18 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
         presenter.doShowOneSite(site)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             //R.id.item_add -> presenter.doAddPlacemark()
             //R.id.item_map -> presenter.doShowPlacemarksMap()
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
         }
         return super.onOptionsItemSelected(item)
     }
