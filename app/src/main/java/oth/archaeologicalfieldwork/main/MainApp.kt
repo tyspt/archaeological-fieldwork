@@ -23,7 +23,13 @@ class MainApp : Application(), AnkoLogger {
         //sites = FieldStoreRoom(applicationContext)
         //sites = PlacemarkFireStore(applicationContext)
 
-        sites.create(SiteModel(1, "Site 01", "this is site 01"))
+        sites.create(
+            SiteModel(
+                1,
+                "Site 01 Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01",
+                "this is site 01 thisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthis this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this  this this this this this this this  is site 01 this is site 01this is site 01 this is site 01this is site 01this is site 01this is site 01v"
+            )
+        )
         sites.create(SiteModel(2, "Site 02", "this is site 02"))
         sites.create(SiteModel(3, "Site 03", "this is site 03"))
         sites.create(SiteModel(4, "Site 04", "this is site 04"))
