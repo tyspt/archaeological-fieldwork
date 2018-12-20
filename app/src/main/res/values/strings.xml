@@ -13,4 +13,5 @@
 
     <string name="button_addImage">Add Image</string>
     <string name="select_image">Select site image</string>
+    <string name="visit_date">Visited on 9999–12–31</string>
 </resources>

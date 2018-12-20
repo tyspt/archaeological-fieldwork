@@ -10,28 +10,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+        <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="41dp"
+                android:id="@+id/checkBox"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"/>
         <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" android:id="@+id/siteTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintTop_toTopOf="parent" android:text="@string/hint_siteTitle" android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.055"
-                android:textSize="30sp" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+                android:textSize="30sp" android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/checkBox"/>
 
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" android:id="@+id/site_visit_date"
+                android:text="@string/visit_date"
+                android:textAlignment="viewStart" android:textSize="14sp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/siteTitle" android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:textColor="@android:color/darker_gray" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/checkBox"/>
         <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" android:id="@+id/siteDescription"
                 android:text="@string/hint_siteDescription"
                 android:textAlignment="viewStart" android:textSize="14sp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/siteTitle" android:layout_marginStart="16dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"/>
+                app:layout_constraintTop_toBottomOf="@+id/site_visit_date" android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"/>
 
         <HorizontalScrollView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_marginTop="60dp"
                 android:scrollbars="none"
                 app:layout_constraintTop_toBottomOf="@+id/siteDescription"
@@ -44,8 +63,24 @@
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:orientation="horizontal">
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" tools:srcCompat="@tools:sample/backgrounds/scenic"
+                        android:id="@+id/imageView" android:layout_weight="1" android:visibility="invisible"/>
             </LinearLayout>
         </HorizontalScrollView>
+
+        <Button
+                android:id="@+id/chooseImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/button_addImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

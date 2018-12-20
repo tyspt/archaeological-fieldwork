@@ -46,10 +46,11 @@ class SiteJSONStore : SiteStore, AnkoLogger {
         if (foundSite != null) {
             foundSite.title = site.title
             foundSite.description = site.description
-            foundSite.image = site.image
-            foundSite.lat = site.lat
-            foundSite.lng = site.lng
-            foundSite.zoom = site.zoom
+            //foundSite.image = site.image
+            //foundSite.lat = site.lat
+            //foundSite.lng = site.lng
+            //foundSite.zoom = site.zoom
+            //TODO adapt the Model -> Location & Image
         }
         serialize()
     }

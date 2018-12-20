@@ -26,8 +26,7 @@ class MainApp : Application(), AnkoLogger {
         sites.create(
             SiteModel(
                 1,
-                "Site 01 Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01Site 01",
-                "this is site 01 thisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthisthis this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this this  this this this this this this this  is site 01 this is site 01this is site 01 this is site 01this is site 01this is site 01this is site 01v"
+                "Site 01 Site 01", "this is site 01"
             )
         )
         sites.create(SiteModel(2, "Site 02", "this is site 02"))

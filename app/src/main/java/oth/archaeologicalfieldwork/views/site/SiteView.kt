@@ -27,7 +27,6 @@ class SiteView : AppCompatActivity(), AnkoLogger {
         siteTitle.text = site.title
         siteDescription.text = site.description
 
-        // Bind the image Gallery
         val gallery: LinearLayout = findViewById(R.id.site_image_gallery)
 
         for (i in 1..6) {

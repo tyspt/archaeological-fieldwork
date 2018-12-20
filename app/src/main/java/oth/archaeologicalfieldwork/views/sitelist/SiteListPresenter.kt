@@ -28,6 +28,6 @@ class SiteListPresenter(val view: SiteListView) {
     }
 
     fun doShowSiteMap() {
-        //view.startActivity<SiteMapsActivity>()
+        //siteView.startActivity<SiteMapsActivity>()
     }
 }
