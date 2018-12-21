@@ -11,13 +11,16 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="41dp"
                 android:id="@+id/checkBox"
+                android:clickable="false"
                 android:layout_marginTop="16dp"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="16dp"/>
         <TextView
                 android:layout_width="0dp"
@@ -66,35 +69,12 @@
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:orientation="horizontal">
-                <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" tools:srcCompat="@tools:sample/backgrounds/scenic"
-                        android:id="@+id/imageView" android:layout_weight="1" android:visibility="invisible"/>
+
+                <ImageView android:layout_width="0dp"
+                           android:layout_height="match_parent" tools:srcCompat="@tools:sample/backgrounds/scenic"
+                           android:id="@+id/imageView" android:layout_weight="1" android:visibility="invisible"/>
             </LinearLayout>
         </HorizontalScrollView>
-
-        <Button
-                android:id="@+id/choose_image"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/button_addImage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"/>
-        <Button
-                android:id="@+id/add_notes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/button_addNotes"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/choose_image"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

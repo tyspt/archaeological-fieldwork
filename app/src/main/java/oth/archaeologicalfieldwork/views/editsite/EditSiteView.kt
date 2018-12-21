@@ -38,7 +38,7 @@ class EditSiteView : AppCompatActivity() {
         val gallery: LinearLayout = findViewById(R.id.site_image_gallery)
 
         for (i in 1..6) {
-            val view = layoutInflater.inflate(R.layout.site_image_gallery_item, gallery, false)
+            val view = layoutInflater.inflate(R.layout.image_gallery_item, gallery, false)
             val imageView = view.findViewById<ImageView>(R.id.site_image)
             imageView.setImageResource(R.drawable.logo)
             gallery.addView(view)
@@ -67,4 +67,6 @@ class EditSiteView : AppCompatActivity() {
             presenter.doActivityResult(requestCode, resultCode, data)
         }
     }
+
+
 }

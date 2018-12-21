@@ -19,8 +19,11 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sitelist)
-        //toolbarMain.title = title
+
         setSupportActionBar(toolbar_main)
+
+        //set Title shown in the action bar
+        setTitle(R.string.label_all_sites)
 
         info("Sites List Activity started..")
 
