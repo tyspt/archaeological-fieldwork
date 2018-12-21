@@ -26,7 +26,7 @@
                 android:layout_marginRight="16dp"/>
 
         <TextView
-                android:id="@+id/siteTitle"
+                android:id="@+id/site_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
@@ -37,7 +37,8 @@
                 android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/siteTitle"
+                android:layout_below="@id/site_title"
+                android:maxLines="3"
                 android:layout_toRightOf="@+id/imageIcon"/>
 
     </RelativeLayout>

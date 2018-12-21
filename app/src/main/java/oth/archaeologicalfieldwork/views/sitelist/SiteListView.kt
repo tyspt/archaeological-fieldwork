@@ -50,7 +50,7 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
         when (item?.itemId) {
             //R.id.item_add -> presenter.doAddPlacemark()
             //R.id.item_map -> presenter.doShowPlacemarksMap()
-            R.id.action_settings -> true
+            R.id.menu_settings -> true //TODO add setting here
             else -> super.onOptionsItemSelected(item)
         }
         return super.onOptionsItemSelected(item)

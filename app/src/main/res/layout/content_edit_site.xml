@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:showIn="@layout/activity_edit_site_view"
+            tools:context=".views.editsite.EditSiteView">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                                                       android:layout_height="match_parent">
+        <EditText
+                android:id="@+id/site_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:ems="10"
+                android:hint="@string/hint_siteTitle"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.483"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="16dp"/>
+
+        <EditText
+                android:id="@+id/site_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:hint="@string/hint_siteDescription"
+                app:layout_constraintStart_toStartOf="@+id/site_title"
+                app:layout_constraintEnd_toEndOf="@+id/site_title"
+                app:layout_constraintTop_toBottomOf="@+id/site_title" android:layout_marginTop="16dp"/>
+
+
+        <HorizontalScrollView
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@+id/site_description"
+                app:layout_constraintStart_toStartOf="@+id/site_description"
+                android:id="@+id/horizontalScrollView"
+                app:layout_constraintEnd_toEndOf="@+id/site_description"
+                android:layout_marginTop="16dp">
+
+            <LinearLayout android:id="@+id/site_image_gallery"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+
+                <ImageView android:layout_width="match_parent"
+                           android:layout_height="match_parent"
+                           tools:srcCompat="@tools:sample/backgrounds/scenic"
+                           android:id="@+id/imageView"
+                           android:layout_weight="1"
+                           android:visibility="invisible"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <Button
+                android:id="@+id/choose_image"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/button_addImage"
+                app:layout_constraintEnd_toEndOf="@+id/horizontalScrollView"
+                app:layout_constraintStart_toStartOf="@+id/horizontalScrollView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+                android:layout_marginTop="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.views.site
+package oth.archaeologicalfieldwork.views.editsite
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,37 +7,33 @@ import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_show_site.*
-import kotlinx.android.synthetic.main.content_show_site.*
-import org.jetbrains.anko.AnkoLogger
+import kotlinx.android.synthetic.main.activity_edit_site_view.*
+import kotlinx.android.synthetic.main.content_edit_site.*
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.models.SiteModel
 
-class SiteView : AppCompatActivity(), AnkoLogger {
+class EditSiteView : AppCompatActivity() {
 
-    lateinit var presenter: SitePresenter
+    lateinit var presenter: EditSitePresenter
     var site = SiteModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_show_site)
+        setContentView(R.layout.activity_edit_site_view)
 
-        //toolbar_show_site.title = title
-
-        /* show back button */
-        setSupportActionBar(toolbar_show_site)
+        setSupportActionBar(toolbar_edit_site)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        presenter = SitePresenter(this)
+        presenter = EditSitePresenter(this)
     }
 
 
-    fun showSite(site: SiteModel) {
+    fun fetchSiteInformation(site: SiteModel) {
         this.site = site
 
-        site_title.text = site.title
-        siteDescription.text = site.description
+        site_title.setText(site.title)
+        site_description.setText(site.description)
 
         val gallery: LinearLayout = findViewById(R.id.site_image_gallery)
 
@@ -51,13 +47,16 @@ class SiteView : AppCompatActivity(), AnkoLogger {
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_edit, menu)
+        menuInflater.inflate(R.menu.menu_save, menu)
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.menu_edit -> presenter.doEditSite(site)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        this.site.title = site_title.text.toString()
+        this.site.description = site_description.text.toString()
+
+        when (item.itemId) {
+            R.id.menu_save -> presenter.doAddOrSaveSite(site)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -68,5 +67,4 @@ class SiteView : AppCompatActivity(), AnkoLogger {
             presenter.doActivityResult(requestCode, resultCode, data)
         }
     }
-
 }
