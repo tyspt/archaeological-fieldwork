@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_show_site.*
 import kotlinx.android.synthetic.main.content_show_site.*
 import org.jetbrains.anko.AnkoLogger
 import oth.archaeologicalfieldwork.R
+import oth.archaeologicalfieldwork.helpers.readImageFromPath
 import oth.archaeologicalfieldwork.models.SiteModel
 
 class SiteView : AppCompatActivity(), AnkoLogger {
@@ -39,16 +39,19 @@ class SiteView : AppCompatActivity(), AnkoLogger {
         site_title.text = site.title
         siteDescription.text = site.description
 
-        val gallery: LinearLayout = findViewById(R.id.site_image_gallery)
-
-        for (i in 1..6) {
-            val view = layoutInflater.inflate(R.layout.image_gallery_item, gallery, false)
-            val imageView = view.findViewById<ImageView>(R.id.site_image)
-            imageView.setImageResource(R.drawable.logo)
-            gallery.addView(view)
-        }
+        showSiteImages(site)
     }
 
+    fun showSiteImages(site: SiteModel) {
+        site_image_gallery_show.removeAllViews()
+
+        for (image in site.images) {
+            val view = layoutInflater.inflate(R.layout.image_gallery_item, site_image_gallery_show, false)
+            val imageView = view.findViewById<ImageView>(R.id.site_image)
+            imageView.setImageBitmap(readImageFromPath(this, image))
+            site_image_gallery_show.addView(view)
+        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit, menu)

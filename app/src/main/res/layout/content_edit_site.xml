@@ -7,7 +7,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:showIn="@layout/activity_edit_site_view"
+            tools:showIn="@layout/activity_edit_site"
             tools:context=".views.editsite.AddOrEditSiteView">
 
 
@@ -43,20 +43,26 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:id="@+id/radioGroup" android:layout_marginTop="8dp"
+                    android:id="@+id/radio_group_has_visited"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintTop_toBottomOf="@+id/site_title"
                     app:layout_constraintStart_toStartOf="@+id/site_title"
                     app:layout_constraintEnd_toEndOf="@+id/site_title">
                 <RadioButton
                         android:text="@string/visited_text"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content" android:id="@+id/radio_visited" android:layout_weight="1"/>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radio_visited"
+                        android:layout_weight="1"/>
                 <RadioButton
                         android:text="@string/not_visited_text"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content" android:id="@+id/radio_not_visited"
-                        android:layout_weight="1" android:checked="true"/>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radio_not_visited"
+                        android:layout_weight="1"
+                        android:checked="true"/>
             </RadioGroup>
+
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -101,7 +107,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/site_title"
                 android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/button_set_location">
 
-            <LinearLayout android:id="@+id/site_image_gallery"
+            <LinearLayout android:id="@+id/site_image_gallery_edit"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:orientation="horizontal">

@@ -16,7 +16,7 @@ class SitePresenter(val view: SiteView) : AnkoLogger {
 
     init {
         if (view.intent.hasExtra("site_show")) {
-            site = view.intent.extras.getParcelable<SiteModel>("site_show")
+            site = view.intent.extras.getParcelable("site_show")
             view.showSite(site)
             info("site-show opened")
         }
@@ -29,9 +29,11 @@ class SitePresenter(val view: SiteView) : AnkoLogger {
     fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         when (requestCode) {
             SITE_EDIT -> {
-                site = data.extras.getParcelable<SiteModel>("changed_site")
+                site = data.extras.getParcelable("changed_site")
                 view.showSite(site)
             }
+
+            //TODO edit site visited status / visit date
         }
     }
 

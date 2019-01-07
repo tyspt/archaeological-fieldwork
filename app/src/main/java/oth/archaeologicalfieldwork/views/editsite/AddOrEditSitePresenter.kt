@@ -22,15 +22,15 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
 
     init {
         if (view.intent.hasExtra("site_edit")) {
-            site = view.intent.extras.getParcelable<SiteModel>("site_edit")
-            view.fetchSiteInformation(site)
+            site = view.intent.extras.getParcelable("site_edit")
+            view.showSiteInformation(site)
             edit = true
             info("site-edit opened")
         }
     }
 
     fun doAddOrSaveSite(site: SiteModel) {
-        if (site == null || site.title.toString().isEmpty()) {
+        if (site == null || site.title.isEmpty()) {
             info(R.string.enter_site_title)
         } else {
             if (edit) {
@@ -48,8 +48,9 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
     fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         when (requestCode) {
             IMAGE_REQUEST -> {
+                view.site = this.site
                 site.images.add(data.data.toString())
-                view.fetchSiteInformation(site)
+                view.showSiteImages(site)
             }
             /* LOCATION_REQUEST -> {
                  location = data.extras.getParcelable<Location>("location")
@@ -63,4 +64,9 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
     fun doSelectImage() {
         showImagePicker(view, IMAGE_REQUEST)
     }
+
+    fun doCancel() {
+        view.finish()
+    }
+
 }

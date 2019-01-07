@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_content_site.view.*
 import oth.archaeologicalfieldwork.R
+import oth.archaeologicalfieldwork.helpers.readImageFromPath
 import oth.archaeologicalfieldwork.models.SiteModel
 
 
@@ -40,6 +41,14 @@ class SiteAdapter constructor(
         fun bind(site: SiteModel, listener: SiteClickListener) {
             itemView.site_title.text = site.title
             itemView.description.text = site.description
+            itemView.sitelist_visit_checkbox.isChecked = site.hasVisited
+
+            if (!site.images.isEmpty()) {
+                itemView.image_icon.setImageBitmap(readImageFromPath(itemView.context, site.images[0]))
+            } else {
+                itemView.image_icon.setImageResource(R.drawable.logo)
+            }
+
             itemView.setOnClickListener { listener.onSiteClick(site) }
         }
     }
