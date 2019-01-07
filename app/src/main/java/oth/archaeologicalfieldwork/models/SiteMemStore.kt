@@ -11,7 +11,7 @@ internal fun getId(): Long {
 
 class SiteMemStore : SiteStore, AnkoLogger {
 
-    val sites = ArrayList<SiteModel>()
+    private val sites = ArrayList<SiteModel>()
 
     override fun findAll(): List<SiteModel> {
         return sites
@@ -32,14 +32,14 @@ class SiteMemStore : SiteStore, AnkoLogger {
     }
 
     internal fun logAll() {
-        sites.forEach { info("${it}") }
+        sites.forEach { info("$it") }
     }
 
     override fun delete(site: SiteModel) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        sites.remove(site)
     }
 
     override fun findById(id: Long): SiteModel? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return sites.find { it.id == id }
     }
 }

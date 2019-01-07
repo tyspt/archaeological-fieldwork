@@ -1,10 +1,10 @@
-package oth.archaeologicalfieldwork.views
+package oth.archaeologicalfieldwork.views.sitelist
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.card_site.view.*
+import kotlinx.android.synthetic.main.card_content_site.view.*
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.models.SiteModel
 
@@ -19,7 +19,13 @@ class SiteAdapter constructor(
 ) : RecyclerView.Adapter<SiteAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        return MainHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_site, parent, false))
+        return MainHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.card_content_site,
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
@@ -32,7 +38,7 @@ class SiteAdapter constructor(
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(site: SiteModel, listener: SiteClickListener) {
-            itemView.siteTitle.text = site.title
+            itemView.site_title.text = site.title
             itemView.description.text = site.description
             itemView.setOnClickListener { listener.onSiteClick(site) }
         }
