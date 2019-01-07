@@ -30,10 +30,9 @@ class SitePresenter(val view: SiteView) : AnkoLogger {
         when (requestCode) {
             SITE_EDIT -> {
                 site = data.extras.getParcelable("changed_site")
+                view.site = site
                 view.showSite(site)
             }
-
-            //TODO edit site visited status / visit date
         }
     }
 

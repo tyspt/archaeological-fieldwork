@@ -16,54 +16,52 @@
         <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="41dp"
-                android:id="@+id/checkBox"
+                android:id="@+id/site_visited_checkbox_show"
                 android:clickable="false"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/site_title_show"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="16dp"/>
         <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content" android:id="@+id/site_title"
+                android:layout_height="wrap_content" android:id="@+id/site_title_show"
                 android:layout_marginTop="16dp"
                 app:layout_constraintTop_toTopOf="parent" android:text="@string/hint_siteTitle"
                 android:textStyle="bold"
                 android:textSize="30sp" android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/checkBox"/>
+                app:layout_constraintEnd_toStartOf="@+id/site_visited_checkbox_show"/>
 
         <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content" android:id="@+id/site_visit_date"
-                android:text="@string/visit_date"
+                android:layout_height="wrap_content" android:id="@+id/site_visit_date_show"
+                android:text="@string/visit_date_text"
                 android:textAlignment="viewStart" android:textSize="12sp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/site_title" android:layout_marginStart="16dp"
-                android:layout_marginEnd="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/site_title_show"
                 app:layout_constraintHorizontal_bias="0.0"
-                android:textColor="@android:color/darker_gray" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/checkBox"/>
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintStart_toStartOf="@+id/site_title_show"
+                app:layout_constraintEnd_toEndOf="@+id/site_title_show"/>
         <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content" android:id="@+id/siteDescription"
+                android:layout_height="wrap_content" android:id="@+id/site_description_show"
                 android:text="@string/hint_siteDescription"
                 android:textAlignment="viewStart" android:textSize="14sp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/site_visit_date" android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/site_visit_date_show"
+                app:layout_constraintEnd_toEndOf="@+id/site_visited_checkbox_show"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/site_title_show"/>
 
         <HorizontalScrollView
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="60dp"
                 android:scrollbars="none"
-                app:layout_constraintTop_toBottomOf="@+id/siteDescription"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="16dp"
-                android:id="@+id/horizontalScrollView" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="16dp">
+                app:layout_constraintTop_toBottomOf="@+id/site_description_show"
+                app:layout_constraintStart_toStartOf="@+id/site_description_show"
+                android:id="@+id/horizontalScrollView" app:layout_constraintEnd_toEndOf="@+id/site_description_show"
+        >
 
             <LinearLayout android:id="@+id/site_image_gallery_show"
                           android:layout_width="wrap_content"

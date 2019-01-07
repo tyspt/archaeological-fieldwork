@@ -7,7 +7,7 @@
 
     <string name="hint_siteTitle">Site Title</string>
     <string name="hint_siteDescription">Site Description</string>
-    <string name="hint_siteVisitedDate">Visit Date</string>
+    <string name="hint_siteVisitedDate">Visit Dates</string>
     <string name="image_Description">Image Description</string>
 
     <string name="action_settings">Settings</string>
@@ -17,10 +17,12 @@
 
     <string name="button_addImage">Add Image</string>
     <string name="select_image">Select site image</string>
-    <string name="visit_date">Visited on xxxx–xx–xx</string>
+
+    <string name="visit_date_text">Visited on: %1$s</string>
+    <string name="not_visited_text">Not visited yet</string>
+
     <string name="button_addNotes">Add Notes</string>
     <string name="enter_site_title">Please Enter Site Title</string>
-    <string name="not_visited_text">Not Visited</string>
     <string name="visited_text">Visited</string>
     <string name="button_setLocation">Set Location</string>
 </resources>

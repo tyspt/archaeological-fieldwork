@@ -35,13 +35,15 @@ class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
 
 
     fun showSiteInformation(site: SiteModel) {
-        site_title.setText(site.title)
-        site_description.setText(site.description)
+        this.site = site
 
-        showSiteImages(site)
+        site_title_edit.setText(site.title)
+        site_description_edit.setText(site.description)
+
+        displaySiteImages(site)
     }
 
-    fun showSiteImages(site: SiteModel) {
+    fun displaySiteImages(site: SiteModel) {
         site_image_gallery_edit.removeAllViews()
 
         for (image in site.images) {
@@ -59,10 +61,10 @@ class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        this.site.title = site_title.text.toString()
-        this.site.description = site_description.text.toString()
+        this.site.title = site_title_edit.text.toString()
+        this.site.description = site_description_edit.text.toString()
         this.site.hasVisited = (radio_visited.id == radio_group_has_visited.checkedRadioButtonId)
-        this.site.visitDate = visit_date.text.toString()
+        this.site.visitDate = visit_date_edit.text.toString()
 
         when (item.itemId) {
             R.id.menu_save -> presenter.doAddOrSaveSite(site)

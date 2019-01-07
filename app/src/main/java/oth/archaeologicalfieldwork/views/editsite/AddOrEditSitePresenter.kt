@@ -30,7 +30,7 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
     }
 
     fun doAddOrSaveSite(site: SiteModel) {
-        if (site == null || site.title.isEmpty()) {
+        if (site.title.isEmpty()) {
             info(R.string.enter_site_title)
         } else {
             if (edit) {
@@ -50,7 +50,7 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
             IMAGE_REQUEST -> {
                 view.site = this.site
                 site.images.add(data.data.toString())
-                view.showSiteImages(site)
+                view.displaySiteImages(site)
             }
             /* LOCATION_REQUEST -> {
                  location = data.extras.getParcelable<Location>("location")

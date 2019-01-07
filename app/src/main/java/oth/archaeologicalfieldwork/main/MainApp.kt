@@ -26,12 +26,45 @@ class MainApp : Application(), AnkoLogger {
         sites.create(
             SiteModel(
                 1,
-                "Site 01 Site 01",
+                "Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01",
                 "this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 "
             )
         )
         sites.create(SiteModel(2, "Site 02", "this is site 02"))
         sites.create(SiteModel(3, "Site 03", "this is site 03"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(
+            SiteModel(
+                1,
+                "Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01",
+                "this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 "
+            )
+        )
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(
+            SiteModel(
+                1,
+                "Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01",
+                "this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 "
+            )
+        )
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(SiteModel(4, "Site 04", "this is site 04"))
+        sites.create(
+            SiteModel(
+                1,
+                "Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01 Site 01",
+                "this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 this is site 01 "
+            )
+        )
         sites.create(SiteModel(4, "Site 04", "this is site 04"))
 
         // register the util to remove splash screen after loading

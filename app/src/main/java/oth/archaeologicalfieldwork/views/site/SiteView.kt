@@ -35,14 +35,20 @@ class SiteView : AppCompatActivity(), AnkoLogger {
 
     fun showSite(site: SiteModel) {
         this.site = site
+        site_title_show.text = site.title
+        site_description_show.text = site.description
+        site_visited_checkbox_show.isChecked = site.hasVisited
 
-        site_title.text = site.title
-        siteDescription.text = site.description
+        if (site.hasVisited) {
+            site_visit_date_show.text = resources.getString(R.string.visit_date_text, site.visitDate)
+        } else {
+            site_visit_date_show.text = resources.getString(R.string.not_visited_text)
+        }
 
-        showSiteImages(site)
+        displaySiteImages(site)
     }
 
-    fun showSiteImages(site: SiteModel) {
+    fun displaySiteImages(site: SiteModel) {
         site_image_gallery_show.removeAllViews()
 
         for (image in site.images) {

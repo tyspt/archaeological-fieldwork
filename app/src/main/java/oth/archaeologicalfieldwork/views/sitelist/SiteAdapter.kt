@@ -39,7 +39,7 @@ class SiteAdapter constructor(
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(site: SiteModel, listener: SiteClickListener) {
-            itemView.site_title.text = site.title
+            itemView.title.text = site.title
             itemView.description.text = site.description
             itemView.sitelist_visit_checkbox.isChecked = site.hasVisited
 
