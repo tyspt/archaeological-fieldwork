@@ -6,40 +6,32 @@ import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
 import oth.archaeologicalfieldwork.main.MainApp
 import oth.archaeologicalfieldwork.models.SiteModel
-import oth.archaeologicalfieldwork.views.editsite.EditSiteView
+import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
 
-class SitePresenter(val siteView: SiteView) : AnkoLogger {
-
-    val IMAGE_REQUEST = 1
-    val LOCATION_REQUEST = 2
+class SitePresenter(val view: SiteView) : AnkoLogger {
+    val SITE_EDIT = 1
 
     var site = SiteModel()
-    var app: MainApp = siteView.application as MainApp
+    var app: MainApp = view.application as MainApp
 
     init {
-        if (siteView.intent.hasExtra("site_show")) {
-            site = siteView.intent.extras.getParcelable<SiteModel>("site_show")
-            siteView.showSite(site)
+        if (view.intent.hasExtra("site_show")) {
+            site = view.intent.extras.getParcelable<SiteModel>("site_show")
+            view.showSite(site)
             info("site-show opened")
         }
     }
 
     fun doEditSite(site: SiteModel) {
-        siteView.startActivityForResult(siteView.intentFor<EditSiteView>().putExtra("site_edit", site), 0)
+        view.startActivityForResult(view.intentFor<AddOrEditSiteView>().putExtra("site_edit", site), SITE_EDIT)
     }
 
     fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         when (requestCode) {
-            IMAGE_REQUEST -> {
-                site.images.add(data.data.toString())
-                siteView.showSite(site)
+            SITE_EDIT -> {
+                site = data.extras.getParcelable<SiteModel>("changed_site")
+                view.showSite(site)
             }
-            /* LOCATION_REQUEST -> {
-                 location = data.extras.getParcelable<Location>("location")
-                 placemark.lat = location.lat
-                 placemark.lng = location.lng
-                 placemark.zoom = location.zoom
-             }*/
         }
     }
 

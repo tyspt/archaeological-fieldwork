@@ -11,10 +11,11 @@ import kotlinx.android.synthetic.main.activity_edit_site_view.*
 import kotlinx.android.synthetic.main.content_edit_site.*
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.views.addoreditsite.AddOrEditSitePresenter
 
-class EditSiteView : AppCompatActivity() {
+class AddOrEditSiteView : AppCompatActivity() {
 
-    lateinit var presenter: EditSitePresenter
+    lateinit var presenter: AddOrEditSitePresenter
     var site = SiteModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +26,7 @@ class EditSiteView : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
-        presenter = EditSitePresenter(this)
+        presenter = AddOrEditSitePresenter(this)
     }
 
 

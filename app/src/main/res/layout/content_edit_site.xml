@@ -8,7 +8,7 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:showIn="@layout/activity_edit_site_view"
-            tools:context=".views.editsite.EditSiteView">
+            tools:context=".views.editsite.AddOrEditSiteView">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"

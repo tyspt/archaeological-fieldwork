@@ -30,7 +30,7 @@
                   android:label="@string/title_show_site"
                   android:parentActivityName=".views.sitelist.SiteListView"/>
 
-        <activity android:name=".views.editsite.EditSiteView"
+        <activity android:name=".views.editsite.AddOrEditSiteView"
                   android:label="@string/title_activity_add_or_edit_site_view"
                   android:parentActivityName=".views.sitelist.SiteListView">
         </activity>

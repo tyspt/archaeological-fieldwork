@@ -4,7 +4,7 @@ import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.startActivityForResult
 import oth.archaeologicalfieldwork.main.MainApp
 import oth.archaeologicalfieldwork.models.SiteModel
-import oth.archaeologicalfieldwork.views.editsite.EditSiteView
+import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
 import oth.archaeologicalfieldwork.views.site.SiteView
 
 class SiteListPresenter(val view: SiteListView) {
@@ -17,7 +17,7 @@ class SiteListPresenter(val view: SiteListView) {
     fun getSite() = app.sites.findAll()
 
     fun doAddSite() {
-        view.startActivityForResult<EditSiteView>(0)
+        view.startActivityForResult<AddOrEditSiteView>(0)
     }
 
     fun doShowOneSite(site: SiteModel) {

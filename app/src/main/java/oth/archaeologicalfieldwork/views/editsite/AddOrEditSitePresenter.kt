@@ -8,6 +8,7 @@ import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.showImagePicker
 import oth.archaeologicalfieldwork.main.MainApp
 import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
 
 class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
 
