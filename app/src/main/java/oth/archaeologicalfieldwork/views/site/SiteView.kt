@@ -32,7 +32,6 @@ class SiteView : AppCompatActivity(), AnkoLogger {
         presenter = SitePresenter(this)
     }
 
-
     fun showSite(site: SiteModel) {
         this.site = site
         site_title_show.text = site.title

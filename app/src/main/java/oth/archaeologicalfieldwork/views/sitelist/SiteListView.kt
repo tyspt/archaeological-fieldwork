@@ -38,13 +38,17 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
         }
     }
 
+    fun showSites(sites: List<SiteModel>) {
+        recyclerView.adapter = SiteAdapter(sites, this)
+        recyclerView.adapter?.notifyDataSetChanged()
+    }
+
     override fun onSiteClick(site: SiteModel) {
         info("Site ${site.id}: ${site.description} Clicked")
         presenter.doShowOneSite(site)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
@@ -53,14 +57,15 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
         when (item?.itemId) {
             //R.id.item_add -> presenter.doAddPlacemark()
             //R.id.item_map -> presenter.doShowPlacemarksMap()
-            R.id.menu_settings -> true //TODO add setting here
+            R.id.menu_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
         return super.onOptionsItemSelected(item)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        recyclerView.adapter?.notifyDataSetChanged()
+        //recyclerView.adapter?.notifyDataSetChanged()
+        presenter.loadSites()
         super.onActivityResult(requestCode, resultCode, data)
     }
 }
