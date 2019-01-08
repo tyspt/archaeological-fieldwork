@@ -1,5 +1,6 @@
 package oth.archaeologicalfieldwork.views.editsite
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -14,11 +15,16 @@ import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.readImageFromPath
 import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.addoreditsite.AddOrEditSitePresenter
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
 
     lateinit var presenter: AddOrEditSitePresenter
     var site = SiteModel()
+
+    private var cal = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,15 +38,37 @@ class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
         presenter = AddOrEditSitePresenter(this)
 
         radio_group_has_visited.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.radio_visited -> visit_date_edit.visibility = View.VISIBLE
-                R.id.radio_not_visited -> visit_date_edit.visibility = View.GONE
+            if (checkedId == R.id.radio_visited) {
+                visit_date_edit.visibility = View.VISIBLE
+            } else {
+                visit_date_edit.visibility = View.GONE
             }
         }
 
         choose_image.setOnClickListener { presenter.doSelectImage() }
-    }
 
+        /* Visit Date Picker   */
+        val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+            cal.set(Calendar.YEAR, year)
+            cal.set(Calendar.MONTH, monthOfYear)
+            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+            val myFormat = "yyyy/MM/dd"
+            val sdf = SimpleDateFormat(myFormat, Locale.US)
+            visit_date_edit.setText(sdf.format(cal.time))
+        }
+
+        visit_date_edit.setOnClickListener {
+            DatePickerDialog(
+                this,
+                dateSetListener,
+                // set DatePickerDialog to point to today's date when it loads up
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
+    }
 
     fun showSiteInformation(site: SiteModel) {
         this.site = site

@@ -28,9 +28,9 @@ class SiteListPresenter(val view: SiteListView) {
         //editSiteView.startActivity<SiteMapsActivity>()
     }
 
-    fun loadSites() {
+    /*fun loadSites() {
         async(UI) {
             view.showSites(app.sites.findAll())
         }
-    }
+    }*/
 }

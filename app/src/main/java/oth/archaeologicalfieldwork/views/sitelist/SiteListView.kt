@@ -64,8 +64,8 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        //recyclerView.adapter?.notifyDataSetChanged()
-        presenter.loadSites()
+        recyclerView.adapter?.notifyDataSetChanged()
+        //presenter.loadSites()
         super.onActivityResult(requestCode, resultCode, data)
     }
 }
