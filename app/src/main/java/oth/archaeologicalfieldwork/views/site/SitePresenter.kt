@@ -36,4 +36,9 @@ class SitePresenter(val view: SiteView) : AnkoLogger {
         }
     }
 
+    fun doDeleteSite(site: SiteModel) {
+        app.sites.delete(site)
+        view.finish()
+    }
+
 }

@@ -67,6 +67,7 @@ class SiteView : AppCompatActivity(), AnkoLogger {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.menu_edit -> presenter.doEditSite(site)
+            R.id.menu_delete -> presenter.doDeleteSite(site)
         }
         return super.onOptionsItemSelected(item)
     }
