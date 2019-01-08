@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_edit_site.*
@@ -30,6 +31,13 @@ class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
 
         presenter = AddOrEditSitePresenter(this)
 
+        radio_group_has_visited.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.radio_visited -> visit_date_edit.visibility = View.VISIBLE
+                R.id.radio_not_visited -> visit_date_edit.visibility = View.GONE
+            }
+        }
+
         choose_image.setOnClickListener { presenter.doSelectImage() }
     }
 
@@ -39,6 +47,12 @@ class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
 
         site_title_edit.setText(site.title)
         site_description_edit.setText(site.description)
+
+        if (site.hasVisited) {
+            radio_group_has_visited.check(R.id.radio_visited)
+            visit_date_edit.visibility = View.VISIBLE
+            visit_date_edit.setText(site.visitDate)
+        }
 
         displaySiteImages(site)
     }

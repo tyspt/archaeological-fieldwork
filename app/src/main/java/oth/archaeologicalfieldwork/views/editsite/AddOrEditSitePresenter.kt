@@ -2,6 +2,7 @@ package oth.archaeologicalfieldwork.views.addoreditsite
 
 import android.app.Activity
 import android.content.Intent
+import android.widget.Toast
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
@@ -31,7 +32,8 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
 
     fun doAddOrSaveSite(site: SiteModel) {
         if (site.title.isEmpty()) {
-            info(R.string.enter_site_title)
+            Toast.makeText(view, R.string.enter_site_title, Toast.LENGTH_SHORT)
+                .show() // having issue with anko.toast(), using the traditional way here
         } else {
             if (edit) {
                 app.sites.update(site)
@@ -41,8 +43,8 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
             } else {
                 app.sites.create(site)
             }
+            view.finish()
         }
-        view.finish()
     }
 
     fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
