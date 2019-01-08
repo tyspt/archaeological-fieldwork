@@ -7,19 +7,18 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_edit_site.*
 import kotlinx.android.synthetic.main.content_edit_site.*
 import org.jetbrains.anko.AnkoLogger
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.readImageFromPath
 import oth.archaeologicalfieldwork.models.SiteModel
-import oth.archaeologicalfieldwork.views.addoreditsite.AddOrEditSitePresenter
+import oth.archaeologicalfieldwork.views.BaseView
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
+class AddOrEditSiteView : BaseView(), AnkoLogger {
 
     lateinit var presenter: AddOrEditSitePresenter
     var site = SiteModel()
@@ -70,7 +69,7 @@ class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
         }
     }
 
-    fun showSiteInformation(site: SiteModel) {
+    override fun showSiteInformation(site: SiteModel) {
         this.site = site
 
         site_title_edit.setText(site.title)
@@ -85,7 +84,8 @@ class AddOrEditSiteView : AppCompatActivity(), AnkoLogger {
         displaySiteImages(site)
     }
 
-    fun displaySiteImages(site: SiteModel) {
+    override fun displaySiteImages(site: SiteModel) {
+        this.site.images = site.images
         site_image_gallery_edit.removeAllViews()
 
         for (image in site.images) {

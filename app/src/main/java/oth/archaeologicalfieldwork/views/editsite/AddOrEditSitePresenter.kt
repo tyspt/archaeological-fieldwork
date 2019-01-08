@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.views.addoreditsite
+package oth.archaeologicalfieldwork.views.editsite
 
 import android.app.Activity
 import android.content.Intent
@@ -7,18 +7,14 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.showImagePicker
-import oth.archaeologicalfieldwork.main.MainApp
+import oth.archaeologicalfieldwork.models.Location
 import oth.archaeologicalfieldwork.models.SiteModel
-import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
+import oth.archaeologicalfieldwork.views.*
 
-class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
-
-    val IMAGE_REQUEST = 1
-    val LOCATION_REQUEST = 2
+class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
 
     var site = SiteModel()
-    var app: MainApp = view.application as MainApp
-
+    var defaultLocation = Location(49.0033904, 12.0934396, 17f)
     var edit = false
 
     init {
@@ -39,20 +35,36 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
                 app.sites.update(site)
                 val resultIntent = Intent()
                 resultIntent.putExtra("changed_site", site)
-                view.setResult(Activity.RESULT_OK, resultIntent)
+                view?.setResult(Activity.RESULT_OK, resultIntent)
             } else {
                 app.sites.create(site)
             }
-            view.finish()
+            view?.finish()
         }
     }
 
-    fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    fun doSetLocation() {
+        if (!edit) {
+            view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", defaultLocation)
+        } else {
+            view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", site.location)
+        }
+    }
+
+    fun doSelectImage() {
+        showImagePicker(view!!, IMAGE_REQUEST)
+    }
+
+    fun doCancel() {
+        view?.finish()
+    }
+
+    override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         when (requestCode) {
             IMAGE_REQUEST -> {
-                view.site = this.site
                 site.images.add(data.data.toString())
-                view.displaySiteImages(site)
+                view?.displaySiteImages(site)
+                info("Image_Request activity result, data: $data")
             }
             /* LOCATION_REQUEST -> {
                  location = data.extras.getParcelable<Location>("location")
@@ -61,14 +73,6 @@ class AddOrEditSitePresenter(val view: AddOrEditSiteView) : AnkoLogger {
                  placemark.zoom = location.zoom
              }*/
         }
-    }
-
-    fun doSelectImage() {
-        showImagePicker(view, IMAGE_REQUEST)
-    }
-
-    fun doCancel() {
-        view.finish()
     }
 
 }

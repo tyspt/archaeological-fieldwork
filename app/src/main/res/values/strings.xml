@@ -27,4 +27,5 @@
     <string name="enter_site_title">Please Enter Site Title</string>
     <string name="visited_text">Visited</string>
     <string name="button_setLocation">Set Location</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

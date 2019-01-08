@@ -4,15 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_sitelist.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.views.BaseView
 
-class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
+class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
 
     lateinit var presenter: SiteListPresenter
 
@@ -27,18 +27,18 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
 
         info("Sites List Activity started..")
 
-        presenter = SiteListPresenter(this)
+        presenter = initPresenter(SiteListPresenter(this)) as SiteListPresenter
+
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = SiteAdapter(presenter.getSite(), this)
-        recyclerView.adapter?.notifyDataSetChanged()
+        presenter.loadSites()
 
         btn_add_list.setOnClickListener { view ->
             presenter.doAddSite()
         }
     }
 
-    fun showSites(sites: List<SiteModel>) {
+    override fun showSites(sites: List<SiteModel>) {
         recyclerView.adapter = SiteAdapter(sites, this)
         recyclerView.adapter?.notifyDataSetChanged()
     }
@@ -64,8 +64,8 @@ class SiteListView : AppCompatActivity(), AnkoLogger, SiteClickListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        recyclerView.adapter?.notifyDataSetChanged()
-        //presenter.loadSites()
+        //recyclerView.adapter?.notifyDataSetChanged()
+        presenter.loadSites()
         super.onActivityResult(requestCode, resultCode, data)
     }
 }

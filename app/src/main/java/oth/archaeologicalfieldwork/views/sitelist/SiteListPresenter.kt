@@ -1,36 +1,31 @@
 package oth.archaeologicalfieldwork.views.sitelist
 
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.startActivityForResult
-import oth.archaeologicalfieldwork.main.MainApp
 import oth.archaeologicalfieldwork.models.SiteModel
-import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
-import oth.archaeologicalfieldwork.views.site.SiteView
+import oth.archaeologicalfieldwork.views.BasePresenter
+import oth.archaeologicalfieldwork.views.BaseView
+import oth.archaeologicalfieldwork.views.VIEW
 
-class SiteListPresenter(val view: SiteListView) {
-    var app: MainApp
-
-    init {
-        app = view.application as MainApp
-    }
+class SiteListPresenter(view: BaseView) : BasePresenter(view) {
 
     fun getSite() = app.sites.findAll()
 
     fun doAddSite() {
-        view.startActivityForResult<AddOrEditSiteView>(0)
+        view?.navigateTo(VIEW.ADD_OR_EDIT_SITE)
+        //view?.startActivityForResult<AddOrEditSiteView>(0)
     }
 
     fun doShowOneSite(site: SiteModel) {
-        view.startActivityForResult(view.intentFor<SiteView>().putExtra("site_show", site), 0)
+        view?.navigateTo(VIEW.SHOW_SITE, 0, "site_show", site)
+        //view.startActivityForResult(view.intentFor<SiteView>().putExtra("site_show", site), 0)
     }
 
     fun doShowSiteMap() {
+        view?.navigateTo(VIEW.MAPS)
         //editSiteView.startActivity<SiteMapsActivity>()
     }
 
-    /*fun loadSites() {
-        async(UI) {
-            view.showSites(app.sites.findAll())
-        }
-    }*/
+    fun loadSites() {
+        view?.showSites(app.sites.findAll())
+        // view.showSites(app.sites.findAll())
+    }
 }

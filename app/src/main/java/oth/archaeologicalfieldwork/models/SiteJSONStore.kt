@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.helpers.exists
 import oth.archaeologicalfieldwork.helpers.read
 import oth.archaeologicalfieldwork.helpers.write
@@ -31,7 +32,12 @@ class SiteJSONStore : SiteStore, AnkoLogger {
     }
 
     override fun findAll(): MutableList<SiteModel> {
+        logAll()
         return sites
+    }
+
+    internal fun logAll() {
+        sites.forEach { info("$it") }
     }
 
     override fun create(site: SiteModel) {
