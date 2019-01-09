@@ -20,10 +20,12 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sitelist)
 
-        setSupportActionBar(toolbar_main)
+        init(toolbar_main, true)
+
+        //setSupportActionBar(toolbar_main)
 
         //set Title shown in the action bar
-        setTitle(R.string.title_all_sites)
+        //setTitle(R.string.title_all_sites)
 
         info("Sites List Activity started..")
 
@@ -64,7 +66,6 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        //recyclerView.adapter?.notifyDataSetChanged()
         presenter.loadSites()
         super.onActivityResult(requestCode, resultCode, data)
     }

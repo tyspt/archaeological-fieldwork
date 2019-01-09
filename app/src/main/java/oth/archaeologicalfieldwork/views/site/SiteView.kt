@@ -1,19 +1,18 @@
 package oth.archaeologicalfieldwork.views.site
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_show_site.*
 import kotlinx.android.synthetic.main.content_show_site.*
 import org.jetbrains.anko.AnkoLogger
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.readImageFromPath
 import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.views.BaseView
 
-class SiteView : AppCompatActivity(), AnkoLogger {
+class SiteView : BaseView(), AnkoLogger {
 
     lateinit var presenter: SitePresenter
     var site = SiteModel()
@@ -22,17 +21,12 @@ class SiteView : AppCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_show_site)
 
-        //toolbar_show_site.title = title
+        init(toolbar_show_site, true)
 
-        /* show back button */
-        setSupportActionBar(toolbar_show_site)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-
-        presenter = SitePresenter(this)
+        presenter = initPresenter(SitePresenter(this)) as SitePresenter
     }
 
-    fun showSite(site: SiteModel) {
+    override fun showSiteInformation(site: SiteModel) {
         this.site = site
         site_title_show.text = site.title
         site_description_show.text = site.description
@@ -47,7 +41,8 @@ class SiteView : AppCompatActivity(), AnkoLogger {
         displaySiteImages(site)
     }
 
-    fun displaySiteImages(site: SiteModel) {
+    override fun displaySiteImages(site: SiteModel) {
+        this.site.images = site.images
         site_image_gallery_show.removeAllViews()
 
         for (image in site.images) {
@@ -69,13 +64,6 @@ class SiteView : AppCompatActivity(), AnkoLogger {
             R.id.menu_delete -> presenter.doDeleteSite(site)
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (data != null) {
-            presenter.doActivityResult(requestCode, resultCode, data)
-        }
     }
 
 }

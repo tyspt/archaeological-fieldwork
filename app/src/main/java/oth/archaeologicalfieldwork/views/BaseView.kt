@@ -49,13 +49,13 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
         return presenter
     }
 
-    fun init(toolbar: Toolbar) {
+    fun init(toolbar: Toolbar, upEnabled: Boolean) {
         toolbar.title = title
 
         // supports the funciton of Android default Backbutton
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
+        //supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
     override fun onDestroy() {
@@ -73,6 +73,7 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         basePresenter?.doRequestPermissionsResult(requestCode, permissions, grantResults)
     }
+
 
     open fun showSiteInformation(site: SiteModel) {}
     open fun displaySiteImages(site: SiteModel) {}

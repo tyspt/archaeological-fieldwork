@@ -3,42 +3,39 @@ package oth.archaeologicalfieldwork.views.site
 import android.content.Intent
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
-import org.jetbrains.anko.intentFor
-import oth.archaeologicalfieldwork.main.MainApp
 import oth.archaeologicalfieldwork.models.SiteModel
-import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
+import oth.archaeologicalfieldwork.views.BasePresenter
+import oth.archaeologicalfieldwork.views.BaseView
+import oth.archaeologicalfieldwork.views.VIEW
 
-class SitePresenter(val view: SiteView) : AnkoLogger {
+class SitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
     val SITE_EDIT = 1
 
     var site = SiteModel()
-    var app: MainApp = view.application as MainApp
 
     init {
         if (view.intent.hasExtra("site_show")) {
             site = view.intent.extras.getParcelable("site_show")
-            view.showSite(site)
+            view.showSiteInformation(site)
             info("site-show opened")
         }
     }
 
     fun doEditSite(site: SiteModel) {
-        view.startActivityForResult(view.intentFor<AddOrEditSiteView>().putExtra("site_edit", site), SITE_EDIT)
-    }
-
-    fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        when (requestCode) {
-            SITE_EDIT -> {
-                site = data.extras.getParcelable("changed_site")
-                view.site = site
-                view.showSite(site)
-            }
-        }
+        view?.navigateTo(VIEW.ADD_OR_EDIT_SITE, SITE_EDIT, "site_edit", site)
     }
 
     fun doDeleteSite(site: SiteModel) {
         app.sites.delete(site)
-        view.finish()
+        view?.finish()
     }
 
+    override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        when (requestCode) {
+            SITE_EDIT -> {
+                site = data.extras.getParcelable("changed_site")
+                view?.showSiteInformation(site)
+            }
+        }
+    }
 }

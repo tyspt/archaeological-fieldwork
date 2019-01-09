@@ -1,7 +1,6 @@
 package oth.archaeologicalfieldwork.views.editsite
 
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -29,7 +28,7 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_site)
-        init(toolbar_edit_site)
+        init(toolbar_edit_site, true)
 
         presenter = initPresenter(AddOrEditSitePresenter(this)) as AddOrEditSitePresenter
 
@@ -111,16 +110,6 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
             R.id.menu_save -> presenter.doAddOrSaveSite(site)
             R.id.menu_cancel -> presenter.doCancel()
         }
-
         return super.onOptionsItemSelected(item)
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (data != null) {
-            presenter.doActivityResult(requestCode, resultCode, data)
-        }
-    }
-
-
 }

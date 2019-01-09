@@ -22,7 +22,7 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         //setContentView(R.layout.fragment_maps)
         setContentView(R.layout.activity_edit_location)
 
-        init(toolbar_edit_location)
+        init(toolbar_edit_location, true)
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
 
