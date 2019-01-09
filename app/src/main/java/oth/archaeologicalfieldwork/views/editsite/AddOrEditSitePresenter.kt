@@ -14,7 +14,8 @@ import oth.archaeologicalfieldwork.views.*
 class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
 
     var site = SiteModel()
-    var defaultLocation = Location(49.0033904, 12.0934396, 15f)
+    var defaultLocation = Location(49.003571, 12.095591, 15f)
+
     var edit = false
 
     init {

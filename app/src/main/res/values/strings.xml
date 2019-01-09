@@ -22,10 +22,12 @@
     <string name="visit_date_text">Visited on: %1$s</string>
     <string name="not_visited_text">Not visited yet</string>
     <string name="visited_text">Visited</string>
+    <string name="location_text">Site Location: (lng %1$s, lat %2$s)</string>
 
-    <string name="button_addImage">Add Image</string>
-    <string name="button_addNotes">Add Notes</string>
-    <string name="button_setLocation">Set Location</string>
+    <string name="button_text_add_image">Add Image</string>
+    <string name="button_text_add_notes">Add Notes</string>
+    <string name="button_text_add_location">Add Location</string>
+    <string name="button_text_change_location">Change Location</string>
 
     <string name="title_activity_maps">Map</string>
 

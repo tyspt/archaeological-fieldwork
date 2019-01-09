@@ -52,10 +52,8 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
     fun init(toolbar: Toolbar, upEnabled: Boolean) {
         toolbar.title = title
 
-        // supports the funciton of Android default Backbutton
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(upEnabled)
-        //supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
     override fun onDestroy() {
@@ -78,7 +76,7 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
     open fun showSiteInformation(site: SiteModel) {}
     open fun displaySiteImages(site: SiteModel) {}
     open fun showSites(sites: List<SiteModel>) {}
-    open fun updateLocation(location: Location) {}
+    open fun updateLocation(location: Location?) {}
 
     open fun showProgress() {}
     open fun hideProgress() {}

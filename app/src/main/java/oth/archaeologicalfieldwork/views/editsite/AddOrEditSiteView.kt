@@ -76,6 +76,7 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
             visit_date_edit.setText(site.visitDate)
         }
 
+        updateLocation(site.location)
         displaySiteImages(site)
     }
 
@@ -91,8 +92,19 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
         }
     }
 
-    override fun updateLocation(location: Location) {
-        this.site.location = location
+    override fun updateLocation(location: Location?) {
+        if (location != null) {
+            this.site.location = location
+            btn_set_location.text = resources.getString(R.string.button_text_change_location)
+            location_info_text_edit.visibility = View.VISIBLE
+            location_info_text_edit.text = resources.getString(
+                R.string.location_text,
+                location.lng.toString().substring(0, 14),
+                location.lat.toString().substring(0, 14)
+            )
+        } else {
+            location_info_text_edit.visibility = View.GONE
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

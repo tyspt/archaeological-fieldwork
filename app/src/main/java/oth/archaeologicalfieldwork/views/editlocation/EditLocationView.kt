@@ -8,7 +8,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
 import kotlinx.android.synthetic.main.activity_edit_location.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.views.BaseView
 
@@ -19,7 +18,6 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.fragment_maps)
         setContentView(R.layout.activity_edit_location)
 
         init(toolbar_edit_location, true)
@@ -41,7 +39,7 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
     }
 
     override fun onMarkerDragEnd(marker: Marker) {
-        presenter.doUpdateLocation(marker.position.latitude, marker.position.longitude)
+
     }
 
     override fun onMarkerClick(marker: Marker): Boolean {
@@ -49,14 +47,15 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         return false
     }
 
-    override fun onBackPressed() {
-        presenter.doSave()
-        info("back pressed -> save location")
+    override fun onMarkerDrag(marker: Marker) {
+        presenter.doUpdateLocation(marker.position.latitude, marker.position.longitude)
     }
 
-    override fun onMarkerDrag(marker: Marker?) {}
+    override fun onBackPressed() {
+        presenter.doCancel()
+    }
 
-    override fun onMarkerDragStart(marker: Marker?) {}
+    override fun onMarkerDragStart(marker: Marker) {}
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_save_only, menu)

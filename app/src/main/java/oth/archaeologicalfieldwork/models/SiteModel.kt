@@ -11,13 +11,13 @@ data class SiteModel(
     var hasVisited: Boolean = false,
     var visitDate: String = "",
     var images: ArrayList<String> = ArrayList(),
-    var location: Location = Location()
+    var location: Location? = null
 ) : Parcelable
 
 @Parcelize
 data class Location(
     var lat: Double = 0.0,
     var lng: Double = 0.0,
-    var zoom: Float = 0f
+    var zoom: Float = 1f
 ) : Parcelable
 

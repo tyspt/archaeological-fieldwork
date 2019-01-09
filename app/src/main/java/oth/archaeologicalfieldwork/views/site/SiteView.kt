@@ -3,12 +3,14 @@ package oth.archaeologicalfieldwork.views.site
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_show_site.*
 import kotlinx.android.synthetic.main.content_show_site.*
 import org.jetbrains.anko.AnkoLogger
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.readImageFromPath
+import oth.archaeologicalfieldwork.models.Location
 import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.BaseView
 
@@ -38,6 +40,7 @@ class SiteView : BaseView(), AnkoLogger {
             site_visit_date_show.text = resources.getString(R.string.not_visited_text)
         }
 
+        updateLocation(site.location)
         displaySiteImages(site)
     }
 
@@ -50,6 +53,20 @@ class SiteView : BaseView(), AnkoLogger {
             val imageView = view.findViewById<ImageView>(R.id.site_image)
             imageView.setImageBitmap(readImageFromPath(this, image))
             site_image_gallery_show.addView(view)
+        }
+    }
+
+    override fun updateLocation(location: Location?) {
+        if (location != null) {
+            this.site.location = location
+            location_info_text_show.visibility = View.VISIBLE
+            location_info_text_show.text = resources.getString(
+                R.string.location_text,
+                location.lng.toString().substring(0, 14),
+                location.lat.toString().substring(0, 14)
+            )
+        } else {
+            location_info_text_show.visibility = View.GONE
         }
     }
 

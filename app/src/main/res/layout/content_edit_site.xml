@@ -92,15 +92,26 @@
                 app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
                 app:layout_constraintTop_toBottomOf="@+id/layout_visited_group"/>
 
+        <TextView android:text="@string/location_text"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/location_info_text_edit"
+                  android:layout_marginTop="8dp"
+                  android:textSize="12sp"
+                  android:textColor="@android:color/darker_gray"
+                  android:visibility="gone"
+                  app:layout_constraintTop_toBottomOf="@+id/site_description_edit"
+                  app:layout_constraintStart_toStartOf="@+id/site_title_edit"
+                  app:layout_constraintEnd_toEndOf="@+id/site_title_edit"/>
         <Button
                 android:id="@+id/btn_set_location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/button_setLocation"
+                android:text="@string/button_text_add_location"
                 app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
                 app:layout_constraintStart_toStartOf="@+id/site_title_edit"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/site_description_edit"
+                app:layout_constraintTop_toBottomOf="@+id/location_info_text_edit"
                 android:layout_marginTop="8dp"/>
 
         <HorizontalScrollView
@@ -130,7 +141,7 @@
                 android:id="@+id/btn_choose_image"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/button_addImage"
+                android:text="@string/button_text_add_image"
                 app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
                 app:layout_constraintStart_toStartOf="@+id/site_title_edit"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -141,7 +152,7 @@
                 android:id="@+id/btn_add_notes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/button_addNotes"
+                android:text="@string/button_text_add_notes"
                 app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
                 app:layout_constraintStart_toStartOf="@+id/site_title_edit"
                 app:layout_constraintHorizontal_bias="0.0"
