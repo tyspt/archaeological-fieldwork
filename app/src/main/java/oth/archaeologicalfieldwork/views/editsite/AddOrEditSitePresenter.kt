@@ -45,7 +45,7 @@ class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
     }
 
     fun doSetLocation() {
-        if (!edit) {
+        if (!edit || site.location == null) {
             view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", defaultLocation)
         } else {
             view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", site.location)

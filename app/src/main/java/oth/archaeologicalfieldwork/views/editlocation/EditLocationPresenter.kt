@@ -21,20 +21,22 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
     fun doConfigureMap(map: GoogleMap) {
         val loc = LatLng(location.lat, location.lng)
         val options = MarkerOptions()
-            .title("Site")
+            .title("Site Location")
             .snippet("GPS : " + loc.toString())
             .draggable(true)
             .position(loc)
-        map.addMarker(options)
+        val marker = map.addMarker(options)
+        marker.showInfoWindow()
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, location.zoom))
     }
 
     fun doUpdateLocation(lat: Double, lng: Double) {
-        location.lat = lat
-        location.lng = lng
+        location.lat = "%.6f".format(lat).toDouble()
+        location.lng = "%.6f".format(lng).toDouble()
     }
 
-    fun doSave() {
+    fun doSave(zoom: Float) {
+        location.zoom = zoom
         val resultIntent = Intent()
         resultIntent.putExtra("location", location)
         view?.setResult(0, resultIntent)
@@ -44,6 +46,7 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
     fun doUpdateMarker(marker: Marker?) {
         val loc = LatLng(location.lat, location.lng)
         marker?.snippet = "GPS : " + loc.toString()
+        marker?.showInfoWindow()
     }
 
     fun doCancel() {

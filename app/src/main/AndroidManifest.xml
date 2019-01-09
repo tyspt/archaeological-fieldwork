@@ -21,8 +21,7 @@
         <meta-data android:name="com.google.android.geo.API_KEY"
                    android:value="@string/google_maps_key"/>
 
-        <activity android:name=".views.sitelist.SiteListView"
-                  android:label="@string/title_all_sites">
+        <activity android:name=".views.sitelist.SiteListView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>

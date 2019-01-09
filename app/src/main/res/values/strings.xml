@@ -22,7 +22,7 @@
     <string name="visit_date_text">Visited on: %1$s</string>
     <string name="not_visited_text">Not visited yet</string>
     <string name="visited_text">Visited</string>
-    <string name="location_text">Site Location: (lng %1$s, lat %2$s)</string>
+    <string name="location_text">Location: (lat %1$s, lng %2$s)</string>
 
     <string name="button_text_add_image">Add Image</string>
     <string name="button_text_add_notes">Add Notes</string>

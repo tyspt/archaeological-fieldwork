@@ -20,7 +20,8 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sitelist)
 
-        init(toolbar_main, true)
+        init(toolbar_main, false)
+        toolbar_main.title = resources.getString(R.string.title_all_sites)
 
         info("Sites List Activity started..")
 

@@ -38,9 +38,7 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
         }
     }
 
-    override fun onMarkerDragEnd(marker: Marker) {
-
-    }
+    override fun onMarkerDragEnd(marker: Marker) {}
 
     override fun onMarkerClick(marker: Marker): Boolean {
         presenter.doUpdateMarker(marker)
@@ -49,6 +47,7 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
 
     override fun onMarkerDrag(marker: Marker) {
         presenter.doUpdateLocation(marker.position.latitude, marker.position.longitude)
+        presenter.doUpdateMarker(marker)
     }
 
     override fun onBackPressed() {
@@ -64,7 +63,7 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_save -> presenter.doSave()
+            R.id.menu_save -> presenter.doSave(map.cameraPosition.zoom)
         }
         return super.onOptionsItemSelected(item)
     }

@@ -43,6 +43,18 @@ class SiteAdapter constructor(
             itemView.description.text = site.description
             itemView.sitelist_visit_checkbox.isChecked = site.hasVisited
 
+            itemView.location_info_text_list.text = itemView.resources.getString(
+                R.string.location_text,
+                site.location?.lat.toString(),
+                site.location?.lng.toString()
+            )
+
+            if (site.location != null) {
+                itemView.location_info_text_list.visibility = View.VISIBLE
+            } else {
+                itemView.location_info_text_list.visibility = View.GONE
+            }
+
             if (!site.images.isEmpty()) {
                 itemView.image_icon.setImageBitmap(readImageFromPath(itemView.context, site.images[0]))
             } else {

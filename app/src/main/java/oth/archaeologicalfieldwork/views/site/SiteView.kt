@@ -62,8 +62,8 @@ class SiteView : BaseView(), AnkoLogger {
             location_info_text_show.visibility = View.VISIBLE
             location_info_text_show.text = resources.getString(
                 R.string.location_text,
-                location.lng.toString().substring(0, 14),
-                location.lat.toString().substring(0, 14)
+                location.lat.toString(),
+                location.lng.toString()
             )
         } else {
             location_info_text_show.visibility = View.GONE
