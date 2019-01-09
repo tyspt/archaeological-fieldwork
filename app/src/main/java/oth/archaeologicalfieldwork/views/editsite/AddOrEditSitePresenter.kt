@@ -14,7 +14,7 @@ import oth.archaeologicalfieldwork.views.*
 class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
 
     var site = SiteModel()
-    var defaultLocation = Location(49.0033904, 12.0934396, 17f)
+    var defaultLocation = Location(49.0033904, 12.0934396, 15f)
     var edit = false
 
     init {
@@ -28,7 +28,7 @@ class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
 
     fun doAddOrSaveSite(site: SiteModel) {
         if (site.title.isEmpty()) {
-            Toast.makeText(view, R.string.enter_site_title, Toast.LENGTH_SHORT)
+            Toast.makeText(view, R.string.hint_enter_site_title, Toast.LENGTH_SHORT)
                 .show() // having issue with anko.toast(), using the traditional way here
         } else {
             if (edit) {
@@ -66,12 +66,13 @@ class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
                 view?.displaySiteImages(site)
                 info("Image_Request activity result, data: $data")
             }
-            /* LOCATION_REQUEST -> {
-                 location = data.extras.getParcelable<Location>("location")
-                 placemark.lat = location.lat
-                 placemark.lng = location.lng
-                 placemark.zoom = location.zoom
-             }*/
+            LOCATION_REQUEST -> {
+                if (data.hasExtra("location")) {
+                    site.location = data.extras.getParcelable<Location>("location")
+                    view?.updateLocation(site.location)
+                }
+                info("Location Request activity result, data: $site.location")
+            }
         }
     }
 

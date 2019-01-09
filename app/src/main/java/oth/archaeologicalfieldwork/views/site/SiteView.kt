@@ -51,7 +51,7 @@ class SiteView : AppCompatActivity(), AnkoLogger {
         site_image_gallery_show.removeAllViews()
 
         for (image in site.images) {
-            val view = layoutInflater.inflate(R.layout.image_gallery_item, site_image_gallery_show, false)
+            val view = layoutInflater.inflate(R.layout.content_image_gallery_item, site_image_gallery_show, false)
             val imageView = view.findViewById<ImageView>(R.id.site_image)
             imageView.setImageBitmap(readImageFromPath(this, image))
             site_image_gallery_show.addView(view)

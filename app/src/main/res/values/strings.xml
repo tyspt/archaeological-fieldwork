@@ -1,13 +1,15 @@
 <resources>
     <string name="app_name">Archaeological Fieldwork</string>
-    <string name="label_all_sites">All Sites</string>
 
+    <string name="title_all_sites">All Sites</string>
     <string name="title_show_site">Show Site</string>
     <string name="title_activity_add_or_edit_site_view">Edit Site</string>
+    <string name="title_edit_location">Edit Location</string>
 
     <string name="hint_siteTitle">site title</string>
     <string name="hint_siteDescription">site description</string>
     <string name="hint_siteVisitedDate">visit date</string>
+    <string name="hint_enter_site_title">Please Enter Site Title</string>
     <string name="image_Description">image description</string>
 
     <string name="action_settings">Settings</string>
@@ -16,16 +18,16 @@
     <string name="action_delete">Delete</string>
     <string name="action_cancel">Cancel</string>
 
-    <string name="button_addImage">Add Image</string>
     <string name="select_image">Select site image</string>
-
     <string name="visit_date_text">Visited on: %1$s</string>
     <string name="not_visited_text">Not visited yet</string>
-
-    <string name="button_addNotes">Add Notes</string>
-
-    <string name="enter_site_title">Please Enter Site Title</string>
     <string name="visited_text">Visited</string>
+
+    <string name="button_addImage">Add Image</string>
+    <string name="button_addNotes">Add Notes</string>
     <string name="button_setLocation">Set Location</string>
+
     <string name="title_activity_maps">Map</string>
+
+
 </resources>

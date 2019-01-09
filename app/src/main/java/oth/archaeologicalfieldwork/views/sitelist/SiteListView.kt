@@ -23,7 +23,7 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         setSupportActionBar(toolbar_main)
 
         //set Title shown in the action bar
-        setTitle(R.string.label_all_sites)
+        setTitle(R.string.title_all_sites)
 
         info("Sites List Activity started..")
 

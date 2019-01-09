@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.content_edit_site.*
 import org.jetbrains.anko.AnkoLogger
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.readImageFromPath
+import oth.archaeologicalfieldwork.models.Location
 import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.BaseView
 import java.text.SimpleDateFormat
@@ -28,13 +29,9 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_site)
+        init(toolbar_edit_site)
 
-        // supports the funciton of Android default Backbutton
-        setSupportActionBar(toolbar_edit_site)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-
-        presenter = AddOrEditSitePresenter(this)
+        presenter = initPresenter(AddOrEditSitePresenter(this)) as AddOrEditSitePresenter
 
         radio_group_has_visited.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId == R.id.radio_visited) {
@@ -44,7 +41,9 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
             }
         }
 
-        choose_image.setOnClickListener { presenter.doSelectImage() }
+        btn_choose_image.setOnClickListener { presenter.doSelectImage() }
+
+        btn_set_location.setOnClickListener { presenter.doSetLocation() }
 
         /* Visit Date Picker   */
         val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
@@ -52,8 +51,7 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
             cal.set(Calendar.MONTH, monthOfYear)
             cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-            val myFormat = "yyyy/MM/dd"
-            val sdf = SimpleDateFormat(myFormat, Locale.US)
+            val sdf = SimpleDateFormat("yyyy/MM/dd", Locale.US)
             visit_date_edit.setText(sdf.format(cal.time))
         }
 
@@ -62,9 +60,7 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
                 this,
                 dateSetListener,
                 // set DatePickerDialog to point to today's date when it loads up
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)
+                cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH)
             ).show()
         }
     }
@@ -89,16 +85,19 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
         site_image_gallery_edit.removeAllViews()
 
         for (image in site.images) {
-            val view = layoutInflater.inflate(R.layout.image_gallery_item, site_image_gallery_edit, false)
+            val view = layoutInflater.inflate(R.layout.content_image_gallery_item, site_image_gallery_edit, false)
             val imageView = view.findViewById<ImageView>(R.id.site_image)
             imageView.setImageBitmap(readImageFromPath(this, image))
             site_image_gallery_edit.addView(view)
         }
     }
 
+    override fun updateLocation(location: Location) {
+        this.site.location = location
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_save, menu)
+        menuInflater.inflate(R.menu.menu_save_cancel, menu)
         return true
     }
 
