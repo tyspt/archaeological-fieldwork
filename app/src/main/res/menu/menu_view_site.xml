@@ -6,6 +6,11 @@
           android:icon="@drawable/ic_bookmark_border_black_24dp"
           app:showAsAction="always"/>
 
+    <item android:id="@+id/menu_navigate"
+          android:title="@string/action_navigate"
+          android:icon="@drawable/ic_navigation_black_24dp"
+          app:showAsAction="always"/>
+
     <item android:id="@+id/menu_delete"
           android:title="@string/action_delete"
           android:icon="@drawable/ic_delete_black_24dp"

@@ -1,6 +1,7 @@
 package oth.archaeologicalfieldwork.views.site
 
 import android.content.Intent
+import android.net.Uri
 import android.widget.Toast
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -9,6 +10,7 @@ import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
 import oth.archaeologicalfieldwork.views.VIEW
+
 
 class SitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
     val SITE_EDIT = 1
@@ -44,6 +46,20 @@ class SitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
         }
     }
 
+    fun doStartNavigation(site: SiteModel) {
+        val lat = site.location.lat
+        val lng = site.location.lng
+
+        if (lng != 0.0) {
+            val gmmIntentUri = Uri.parse("google.navigation:q=$lat,$lng")
+            val locationIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+
+            if (locationIntent.resolveActivity(view?.packageManager) != null) {
+                view?.startActivity(locationIntent)
+            }
+        }
+    }
+
     override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         when (requestCode) {
             SITE_EDIT -> {
@@ -52,4 +68,6 @@ class SitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
             }
         }
     }
+
+
 }
