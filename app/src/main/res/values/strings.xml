@@ -23,8 +23,8 @@
     <string name="action_edit">Edit</string>
     <string name="action_delete">Delete</string>
     <string name="action_cancel">Cancel</string>
-    <string name="action_favorite">Favorite</string>
-    <string name="action_navigate">Navigate</string>
+    <string name="action_favorite">Set Favorite</string>
+    <string name="action_navigate">Navigate to Site</string>
 
     <string name="select_image">Select site image</string>
     <string name="visit_date_text">Visited on: %1$s</string>
