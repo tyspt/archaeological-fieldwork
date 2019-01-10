@@ -56,8 +56,8 @@ class SiteView : BaseView(), AnkoLogger {
         }
     }
 
-    override fun updateLocation(location: Location?) {
-        if (location != null) {
+    override fun updateLocation(location: Location) {
+        if (location.lng != 0.0) {
             this.site.location = location
             location_info_text_show.visibility = View.VISIBLE
             location_info_text_show.text = resources.getString(

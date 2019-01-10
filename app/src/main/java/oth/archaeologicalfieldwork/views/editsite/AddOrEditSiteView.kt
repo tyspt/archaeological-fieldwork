@@ -92,8 +92,8 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
         }
     }
 
-    override fun updateLocation(location: Location?) {
-        if (location != null) {
+    override fun updateLocation(location: Location) {
+        if (location.lng != 0.0) {
             this.site.location = location
             btn_set_location.text = resources.getString(R.string.button_text_change_location)
             location_info_text_edit.visibility = View.VISIBLE

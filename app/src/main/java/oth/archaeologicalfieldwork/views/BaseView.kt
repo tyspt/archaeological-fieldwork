@@ -9,6 +9,7 @@ import oth.archaeologicalfieldwork.models.Location
 import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.editlocation.EditLocationView
 import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
+import oth.archaeologicalfieldwork.views.map.SiteMapView
 import oth.archaeologicalfieldwork.views.site.SiteView
 import oth.archaeologicalfieldwork.views.sitelist.SiteListView
 
@@ -33,9 +34,8 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
             VIEW.LOCATION -> intent = Intent(this, EditLocationView::class.java)
             VIEW.ADD_OR_EDIT_SITE -> intent = Intent(this, AddOrEditSiteView::class.java)
             VIEW.SHOW_SITE -> intent = Intent(this, SiteView::class.java)
-            //VIEW.MAPS -> intent = Intent(this, PlacemarkMapView::class.java)
+            VIEW.MAPS -> intent = Intent(this, SiteMapView::class.java)
             VIEW.LIST -> intent = Intent(this, SiteListView::class.java)
-            //TODO Navigation options
         }
         if (key != "") {
             intent.putExtra(key, value)
@@ -76,7 +76,7 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
     open fun showSiteInformation(site: SiteModel) {}
     open fun displaySiteImages(site: SiteModel) {}
     open fun showSites(sites: List<SiteModel>) {}
-    open fun updateLocation(location: Location?) {}
+    open fun updateLocation(location: Location) {}
 
     open fun showProgress() {}
     open fun hideProgress() {}

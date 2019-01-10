@@ -54,7 +54,7 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             //R.id.item_add -> presenter.doAddPlacemark()
-            //R.id.item_map -> presenter.doShowPlacemarksMap()
+            R.id.menu_sites_map -> presenter.doShowSiteMap()
             R.id.menu_settings -> true
             else -> super.onOptionsItemSelected(item)
         }

@@ -49,6 +49,11 @@
                   android:label="@string/title_edit_location"
                   android:parentActivityName=".views.editsite.AddOrEditSiteView">
         </activity>
+
+        <activity android:name=".views.map.SiteMapView"
+                  android:label="@string/title_site_map"
+                  android:parentActivityName=".views.sitelist.SiteListView">
+        </activity>
     </application>
 
 </manifest>
