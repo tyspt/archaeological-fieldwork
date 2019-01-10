@@ -112,7 +112,7 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_save_cancel, menu)
+        menuInflater.inflate(R.menu.menu_edit_site, menu)
         return true
     }
 

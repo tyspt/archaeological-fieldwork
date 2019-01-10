@@ -31,6 +31,7 @@
     <string name="button_text_add_notes">Add Notes</string>
     <string name="button_text_add_location">Add Location</string>
     <string name="button_text_change_location">Change Location</string>
+    <string name="action_favorite">Favorite</string>
 
 
 </resources>

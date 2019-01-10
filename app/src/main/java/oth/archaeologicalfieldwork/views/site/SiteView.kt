@@ -71,7 +71,7 @@ class SiteView : BaseView(), AnkoLogger {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_edit, menu)
+        menuInflater.inflate(R.menu.menu_view_site, menu)
         return true
     }
 
@@ -79,6 +79,7 @@ class SiteView : BaseView(), AnkoLogger {
         when (item?.itemId) {
             R.id.menu_edit -> presenter.doEditSite(site)
             R.id.menu_delete -> presenter.doDeleteSite(site)
+            //TODO Favorite Site Icon Action
         }
         return super.onOptionsItemSelected(item)
     }
