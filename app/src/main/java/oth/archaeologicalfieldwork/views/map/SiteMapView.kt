@@ -8,11 +8,10 @@ import kotlinx.android.synthetic.main.activity_site_map.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
+import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.BaseView
 
 class SiteMapView : BaseView(), GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener, AnkoLogger {
-
-
     lateinit var presenter: SiteMapPresenter
     lateinit var map: GoogleMap
 
@@ -42,5 +41,9 @@ class SiteMapView : BaseView(), GoogleMap.OnMarkerClickListener, GoogleMap.OnInf
     override fun onInfoWindowClick(marker: Marker) {
         presenter.doInfoWindowClicked(marker)
         info("info window clicked")
+    }
+
+    override fun showSites(sites: List<SiteModel>) {
+        presenter.doPopulateMap(map)
     }
 }

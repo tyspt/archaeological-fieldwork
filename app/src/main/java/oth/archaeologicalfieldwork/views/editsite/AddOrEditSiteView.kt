@@ -32,6 +32,10 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
 
         presenter = initPresenter(AddOrEditSitePresenter(this)) as AddOrEditSitePresenter
 
+        toolbar_edit_site.setNavigationOnClickListener {
+            presenter.doCancel()
+        }
+
         radio_group_has_visited.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId == R.id.radio_visited) {
                 visit_date_edit.visibility = View.VISIBLE

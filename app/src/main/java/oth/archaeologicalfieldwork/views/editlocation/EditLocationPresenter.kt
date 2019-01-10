@@ -48,8 +48,4 @@ class EditLocationPresenter(view: BaseView) : BasePresenter(view) {
         marker?.snippet = "GPS : " + loc.toString()
         marker?.showInfoWindow()
     }
-
-    fun doCancel() {
-        view?.finish()
-    }
 }

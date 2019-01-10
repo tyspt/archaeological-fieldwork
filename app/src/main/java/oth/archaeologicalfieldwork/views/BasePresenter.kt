@@ -16,4 +16,8 @@ open class BasePresenter(var view: BaseView?) {
     open fun onDestroy() {
         view = null
     }
+
+    open fun doCancel() {
+        view?.finish()
+    }
 }

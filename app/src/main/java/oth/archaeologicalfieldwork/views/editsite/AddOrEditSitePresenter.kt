@@ -56,10 +56,6 @@ class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
         showImagePicker(view!!, IMAGE_REQUEST)
     }
 
-    fun doCancel() {
-        view?.finish()
-    }
-
     override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         when (requestCode) {
             IMAGE_REQUEST -> {
