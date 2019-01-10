@@ -29,7 +29,7 @@ class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
 
     fun doAddOrSaveSite(site: SiteModel) {
         if (site.title.isEmpty()) {
-            Toast.makeText(view, R.string.hint_enter_site_title, Toast.LENGTH_SHORT)
+            Toast.makeText(view, R.string.message_enter_site_title, Toast.LENGTH_SHORT)
                 .show() // having issue with anko.toast(), using the traditional way here
         } else {
             if (edit) {

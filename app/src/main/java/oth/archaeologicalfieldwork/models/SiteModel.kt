@@ -11,7 +11,8 @@ data class SiteModel(
     var hasVisited: Boolean = false,
     var visitDate: String = "",
     var images: ArrayList<String> = ArrayList(),
-    var location: Location = Location()
+    var location: Location = Location(),
+    var isFavorite: Boolean = false
 ) : Parcelable
 
 @Parcelize

@@ -17,6 +17,7 @@ import oth.archaeologicalfieldwork.views.BaseView
 class SiteView : BaseView(), AnkoLogger {
 
     lateinit var presenter: SitePresenter
+    var menu: Menu? = null
     var site = SiteModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,15 @@ class SiteView : BaseView(), AnkoLogger {
 
         updateLocation(site.location)
         displaySiteImages(site)
+        showFavoriteIcon(site)
+    }
+
+    private fun showFavoriteIcon(site: SiteModel) {
+        if (site.isFavorite) {
+            this.menu?.findItem(R.id.menu_favorite)?.setIcon(R.drawable.ic_bookmark_black_24dp)
+        } else {
+            this.menu?.findItem(R.id.menu_favorite)?.setIcon(R.drawable.ic_bookmark_border_black_24dp)
+        }
     }
 
     override fun displaySiteImages(site: SiteModel) {
@@ -72,6 +82,8 @@ class SiteView : BaseView(), AnkoLogger {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_view_site, menu)
+        this.menu = menu
+        showFavoriteIcon(site)
         return true
     }
 
@@ -79,7 +91,7 @@ class SiteView : BaseView(), AnkoLogger {
         when (item?.itemId) {
             R.id.menu_edit -> presenter.doEditSite(site)
             R.id.menu_delete -> presenter.doDeleteSite(site)
-            //TODO Favorite Site Icon Action
+            R.id.menu_favorite -> presenter.doFlipFavorite(site)
         }
         return super.onOptionsItemSelected(item)
     }
