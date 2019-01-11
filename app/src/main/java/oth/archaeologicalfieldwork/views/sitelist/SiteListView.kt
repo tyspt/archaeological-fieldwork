@@ -58,7 +58,7 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         when (item?.itemId) {
             //R.id.item_add -> presenter.doAddPlacemark()
             R.id.menu_sites_map -> presenter.doShowSiteMap()
-            R.id.menu_settings -> true //todo add settings page
+            R.id.menu_settings -> presenter.doShowSettings()
             R.id.menu_logout -> presenter.doLogout()
             else -> super.onOptionsItemSelected(item)
         }

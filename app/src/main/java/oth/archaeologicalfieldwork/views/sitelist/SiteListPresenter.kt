@@ -28,4 +28,8 @@ class SiteListPresenter(view: BaseView) : BasePresenter(view) {
     fun doLogout() {
         view?.navigateTo(VIEW.LOGIN)
     }
+
+    fun doShowSettings() {
+        view?.navigateTo(VIEW.SETTINGS)
+    }
 }
