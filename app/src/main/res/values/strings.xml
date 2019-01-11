@@ -3,6 +3,7 @@
 
     <string name="title_activity_login">Sign up/Login to Sites</string>
     <string name="title_all_sites">All Sites</string>
+    <string name="title_favorite_sites">My Favorite Sites</string>
     <string name="title_show_site">Show Site</string>
     <string name="title_activity_add_or_edit_site_view">Edit Site</string>
     <string name="title_edit_location">Edit Location</string>
@@ -56,4 +57,6 @@
     <string name="pref_title_change_password">Change Password</string>
     <string name="pref_title_statistics">Site Statistics</string>
     <string name="pref_summary_statistics">total num of sites: %1$s\nnumber of sites visited: %2$s</string>
+    <string name="action_show_favorites">Show favorite sites</string>
+    <string name="action_show_all">Show all sites</string>
 </resources>

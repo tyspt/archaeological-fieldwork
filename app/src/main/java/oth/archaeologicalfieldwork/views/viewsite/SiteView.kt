@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.views.site
+package oth.archaeologicalfieldwork.views.viewsite
 
 import android.os.Bundle
 import android.view.Menu

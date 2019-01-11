@@ -12,8 +12,8 @@ import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
 import oth.archaeologicalfieldwork.views.login.LoginView
 import oth.archaeologicalfieldwork.views.map.SiteMapView
 import oth.archaeologicalfieldwork.views.settings.SettingsView
-import oth.archaeologicalfieldwork.views.site.SiteView
 import oth.archaeologicalfieldwork.views.sitelist.SiteListView
+import oth.archaeologicalfieldwork.views.viewsite.SiteView
 
 
 val IMAGE_REQUEST = 1

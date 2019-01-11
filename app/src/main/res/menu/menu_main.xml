@@ -13,8 +13,19 @@
           android:orderInCategory="200"
           app:showAsAction="ifRoom"/>
 
+    <item android:id="@+id/menu_favorite_sites_only"
+          android:title="@string/action_show_favorites"
+          android:orderInCategory="300"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/menu_show_all_sites"
+          android:title="@string/action_show_all"
+          android:visible="false"
+          android:orderInCategory="300"
+          app:showAsAction="never"/>
+
     <item android:id="@+id/menu_logout"
           android:title="@string/action_logout"
-          android:orderInCategory="300"
+          android:orderInCategory="400"
           app:showAsAction="never"/>
 </menu>
