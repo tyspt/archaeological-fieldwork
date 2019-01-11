@@ -21,6 +21,7 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         setContentView(R.layout.activity_sitelist)
 
         init(toolbar_main, false)
+        toolbar_main.title = resources.getString(R.string.title_all_sites)
 
         info("Sites List Activity started..")
 
@@ -28,8 +29,12 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-        presenter.loadSites()
 
+        if (presenter.doCheckSessionInvalid()) {
+            presenter.doLogout()
+        }
+
+        presenter.loadSites()
         btn_add_list.setOnClickListener { view ->
             presenter.doAddSite()
         }

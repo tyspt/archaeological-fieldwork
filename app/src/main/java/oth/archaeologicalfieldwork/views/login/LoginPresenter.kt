@@ -7,7 +7,6 @@ import oth.archaeologicalfieldwork.views.BaseView
 import oth.archaeologicalfieldwork.views.VIEW
 
 class LoginPresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
-
     fun doLoginSuccess() {
         view?.navigateTo(VIEW.LIST)
     }

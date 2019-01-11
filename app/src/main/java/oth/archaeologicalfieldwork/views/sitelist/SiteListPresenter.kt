@@ -26,10 +26,16 @@ class SiteListPresenter(view: BaseView) : BasePresenter(view) {
     }
 
     fun doLogout() {
+        app.session.clearSession()
         view?.navigateTo(VIEW.LOGIN)
     }
 
     fun doShowSettings() {
+
         view?.navigateTo(VIEW.SETTINGS)
+    }
+
+    fun doCheckSessionInvalid(): Boolean {
+        return (app.session.getUsername().isNullOrEmpty())
     }
 }

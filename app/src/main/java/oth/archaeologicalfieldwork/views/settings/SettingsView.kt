@@ -51,7 +51,7 @@ class SettingsFragment : PreferenceFragmentCompat(), AnkoLogger {
         prefPassword.setDefaultValue(app.session.getPassword())
         prefPassword.summary = app.session.getPassword()
 
-        activity?.resources?.getString(
+        prefStatistics.summary = activity?.resources?.getString(
             R.string.pref_summary_statistics,
             app.sites.findAll().size.toString(),
             app.sites.findAll().count {

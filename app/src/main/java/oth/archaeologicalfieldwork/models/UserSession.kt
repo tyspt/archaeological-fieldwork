@@ -23,4 +23,8 @@ class UserSession(context: Context) {
     fun getPassword(): String? {
         return prefs.getString("password", "")
     }
+
+    fun clearSession() {
+        prefs.edit().clear().apply()
+    }
 }

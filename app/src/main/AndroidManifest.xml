@@ -29,16 +29,17 @@
                 android:value="@string/google_maps_key"/>
 
         <activity android:name=".views.login.LoginView">
+
+        </activity>
+
+        <activity
+                android:name=".views.sitelist.SiteListView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity
-                android:name=".views.sitelist.SiteListView"
-                android:label="@string/title_all_sites">
             <!--
             Add theme information to show after the splash screen
             <meta-data android:name="theme" android:resource="@style/AppTheme"/>
