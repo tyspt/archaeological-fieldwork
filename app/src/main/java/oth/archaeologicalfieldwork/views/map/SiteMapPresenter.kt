@@ -11,6 +11,7 @@ import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
 import oth.archaeologicalfieldwork.views.VIEW
+import java.lang.Math.abs
 
 
 class SiteMapPresenter(view: BaseView) : BasePresenter(view) {
@@ -22,7 +23,7 @@ class SiteMapPresenter(view: BaseView) : BasePresenter(view) {
         val sites = app.sites.findAll()
 
         sites.forEach {
-            if (it.location.lng != 0.0) {
+            if (abs(it.location.lng) < 0.0001) {
                 val loc = LatLng(it.location.lat, it.location.lng)
                 val options = MarkerOptions().title(it.title).position(loc)
                 val marker = map.addMarker(options)

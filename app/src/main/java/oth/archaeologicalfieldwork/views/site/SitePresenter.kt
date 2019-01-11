@@ -10,6 +10,7 @@ import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
 import oth.archaeologicalfieldwork.views.VIEW
+import java.lang.Math.abs
 
 
 class SitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
@@ -50,7 +51,7 @@ class SitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
         val lat = site.location.lat
         val lng = site.location.lng
 
-        if (lng != 0.0) {
+        if (abs(lng) > 0.0001) {
             val gmmIntentUri = Uri.parse("google.navigation:q=$lat,$lng")
             val locationIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
 

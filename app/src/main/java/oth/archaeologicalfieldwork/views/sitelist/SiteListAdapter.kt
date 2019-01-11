@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.card_content_site.view.*
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.readImageFromPath
 import oth.archaeologicalfieldwork.models.SiteModel
+import java.lang.Math.abs
 
 
 interface SiteClickListener {
@@ -43,7 +44,7 @@ class SiteAdapter constructor(
             itemView.description.text = site.description
             itemView.sitelist_visit_checkbox.isChecked = site.hasVisited
 
-            if (site.location.lng != 0.0) {
+            if (abs(site.location.lng) > 0.0001) {
                 itemView.location_info_text_list.visibility = View.VISIBLE
                 itemView.location_info_text_list.text = itemView.resources.getString(
                     R.string.location_text,

@@ -14,6 +14,7 @@ import oth.archaeologicalfieldwork.helpers.readImageFromPath
 import oth.archaeologicalfieldwork.models.Location
 import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.BaseView
+import java.lang.Math.abs
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -97,7 +98,7 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
     }
 
     override fun updateLocation(location: Location) {
-        if (location.lng != 0.0) {
+        if (abs(location.lng) > 0.0001) { //double value comparison
             this.site.location = location
             btn_set_location.text = resources.getString(R.string.button_text_change_location)
             location_info_text_edit.visibility = View.VISIBLE
@@ -124,7 +125,7 @@ class AddOrEditSiteView : BaseView(), AnkoLogger {
 
         when (item.itemId) {
             R.id.menu_save -> presenter.doAddOrSaveSite(site)
-            R.id.menu_cancel -> presenter.doCancel()
+            //R.id.menu_cancel -> presenter.doCancel()
         }
         return super.onOptionsItemSelected(item)
     }

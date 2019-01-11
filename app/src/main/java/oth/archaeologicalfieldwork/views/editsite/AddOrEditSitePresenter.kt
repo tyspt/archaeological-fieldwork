@@ -14,7 +14,6 @@ import oth.archaeologicalfieldwork.views.*
 class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
 
     var site = SiteModel()
-    var defaultLocation = Location(49.003571, 12.095591, 15f)
 
     var edit = false
 
@@ -45,11 +44,7 @@ class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
     }
 
     fun doSetLocation() {
-        if (!edit || site.location.lng == 0.0) {
-            view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", defaultLocation)
-        } else {
-            view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", site.location)
-        }
+        view?.navigateTo(VIEW.LOCATION, LOCATION_REQUEST, "location", site.location)
     }
 
     fun doSelectImage() {

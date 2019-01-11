@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
 import kotlinx.android.synthetic.main.activity_edit_location.*
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.views.BaseView
 
-class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.OnMarkerClickListener, AnkoLogger {
+class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, OnMapReadyCallback, AnkoLogger {
 
     lateinit var map: GoogleMap
     lateinit var presenter: EditLocationPresenter
@@ -24,30 +26,29 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, GoogleMap.O
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
 
-        presenter = EditLocationPresenter(this)
+        presenter = initPresenter(EditLocationPresenter(this)) as EditLocationPresenter
 
-        mapFragment.getMapAsync {
-            map = it
-            map.setOnMarkerDragListener(this)
-            map.setOnMarkerClickListener(this)
-            presenter.doConfigureMap(map)
-        }
+        mapFragment.getMapAsync(this)
 
         toolbar_edit_location.setNavigationOnClickListener {
             presenter.doCancel()
         }
     }
 
-    override fun onMarkerDragEnd(marker: Marker) {}
+    override fun onMapReady(googleMap: GoogleMap) {
+        map = googleMap
 
-    override fun onMarkerClick(marker: Marker): Boolean {
-        presenter.doUpdateMarker(marker)
-        return false
+        map.setOnMarkerDragListener(this)
+
+        presenter.doAddMarker(map)
+        info("location map ready")
     }
+
+    override fun onMarkerDragEnd(marker: Marker) {}
 
     override fun onMarkerDrag(marker: Marker) {
         presenter.doUpdateLocation(marker.position.latitude, marker.position.longitude)
-        presenter.doUpdateMarker(marker)
+        presenter.doUpdateMarkerSnippet(marker)
     }
 
     override fun onBackPressed() {
