@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Archaeological Fieldwork</string>
 
-    <string name="title_activity_login">Signup/Login to Sites</string>
+    <string name="title_activity_login">Sign up/Login to Sites</string>
     <string name="title_all_sites">All Sites</string>
     <string name="title_show_site">Show Site</string>
     <string name="title_activity_add_or_edit_site_view">Edit Site</string>
