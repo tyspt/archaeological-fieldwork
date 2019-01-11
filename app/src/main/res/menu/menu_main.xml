@@ -2,14 +2,16 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/menu_sites_map"
+          android:icon="@drawable/ic_map_black_24dp"
           android:title="@string/action_map_of_sites"
           android:orderInCategory="100"
-          app:showAsAction="never"/>
+          app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/menu_settings"
+          android:icon="@drawable/ic_settings_black_24dp"
           android:title="@string/action_settings"
           android:orderInCategory="200"
-          app:showAsAction="never"/>
+          app:showAsAction="ifRoom"/>
 
     <item android:id="@+id/menu_logout"
           android:title="@string/action_logout"

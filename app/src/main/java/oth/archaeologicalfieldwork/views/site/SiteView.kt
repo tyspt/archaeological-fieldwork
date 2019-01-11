@@ -26,6 +26,7 @@ class SiteView : BaseView(), AnkoLogger {
         setContentView(R.layout.activity_show_site)
 
         init(toolbar_show_site, true)
+        toolbar_show_site.title = ""    //hide toolbar text due to lacking of space
 
         presenter = initPresenter(SitePresenter(this)) as SitePresenter
     }

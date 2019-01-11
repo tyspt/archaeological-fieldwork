@@ -1,7 +1,6 @@
 package oth.archaeologicalfieldwork.views.login
 
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.models.users.UserModel
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
@@ -13,16 +12,20 @@ class LoginPresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
         view?.navigateTo(VIEW.LIST)
     }
 
-    fun doUserLoginOrSignUp(mEmail: String, mPassword: String): Boolean {
-        val user = app.users.findByName(mEmail)
-
+    fun doSignupOrLogin(mEmail: String, mPassword: String): Boolean {
+        var user = app.users.findByName(mEmail)
+        val result: Boolean
         if (user != null) {
-            info("user exists ->${user.email} / password correct: ${user.password == mPassword}")
-            return user.password == mPassword  // Account exists, check if the password matches.
+            result = (user.password == mPassword)
         } else {
-            info("create new user ->$mEmail")
-            app.users.create(UserModel(email = mEmail, password = mPassword))
+            user = UserModel(email = mEmail, password = mPassword)
+            app.users.create(user)
+            result = true
         }
-        return true
+        app.session.setUsername(user.email)
+        app.session.setPassword(user.password)
+        return result
     }
+
+
 }

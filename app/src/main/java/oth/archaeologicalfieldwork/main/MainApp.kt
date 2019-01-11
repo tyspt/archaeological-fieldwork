@@ -4,6 +4,7 @@ import android.app.Application
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.helpers.SplashScreenHelper
+import oth.archaeologicalfieldwork.models.UserSession
 import oth.archaeologicalfieldwork.models.sites.SiteJSONStore
 import oth.archaeologicalfieldwork.models.sites.SiteModel
 import oth.archaeologicalfieldwork.models.sites.SiteStore
@@ -14,9 +15,12 @@ class MainApp : Application(), AnkoLogger {
 
     lateinit var sites: SiteStore
     lateinit var users: UserStore
+    lateinit var session: UserSession
 
     override fun onCreate() {
         super.onCreate()
+
+        session = UserSession(applicationContext)
 
         info("Main App started...")
 
@@ -26,8 +30,6 @@ class MainApp : Application(), AnkoLogger {
         //sites = PlacemarkFireStore(applicationContext)
 
         users = UserJSONStore(applicationContext)
-
-
 
         if (sites.findAll().isEmpty()) {
             sites.create(

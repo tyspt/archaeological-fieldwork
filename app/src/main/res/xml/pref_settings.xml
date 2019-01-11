@@ -1,0 +1,26 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+            android:key="change_name_key"
+            android:title="@string/pref_title_change_username"
+            android:selectAllOnFocus="true"
+            android:persistent="false"
+            android:inputType="textCapWords"
+            android:singleLine="true"
+            android:maxLines="1"/>
+
+    <EditTextPreference
+            android:key="change_password_key"
+            android:title="@string/pref_title_change_password"
+            android:inputType="textPassword"
+            android:persistent="false"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:maxLines="1"/>
+
+    <Preference
+            android:key="statistics_key"
+            android:selectable="false"
+            android:persistent="false"
+            android:title="@string/pref_title_statistics"/>
+</PreferenceScreen>

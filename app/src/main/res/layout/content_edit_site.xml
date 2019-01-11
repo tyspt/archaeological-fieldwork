@@ -148,17 +148,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
                 android:layout_marginTop="16dp"/>
 
-        <Button
-                android:id="@+id/btn_add_notes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/button_text_add_notes"
-                app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
-                app:layout_constraintStart_toStartOf="@+id/site_title_edit"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/btn_choose_image"
-                android:layout_marginTop="8dp"/>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

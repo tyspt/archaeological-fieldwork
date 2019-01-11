@@ -11,7 +11,7 @@ import oth.archaeologicalfieldwork.views.editlocation.EditLocationView
 import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
 import oth.archaeologicalfieldwork.views.login.LoginView
 import oth.archaeologicalfieldwork.views.map.SiteMapView
-import oth.archaeologicalfieldwork.views.settings.SettingsActivity
+import oth.archaeologicalfieldwork.views.settings.SettingsView
 import oth.archaeologicalfieldwork.views.site.SiteView
 import oth.archaeologicalfieldwork.views.sitelist.SiteListView
 
@@ -39,7 +39,7 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
             VIEW.MAPS -> intent = Intent(this, SiteMapView::class.java)
             VIEW.LIST -> intent = Intent(this, SiteListView::class.java)
             VIEW.LOGIN -> intent = Intent(this, LoginView::class.java)
-            VIEW.SETTINGS -> intent = Intent(this, SettingsActivity::class.java)
+            VIEW.SETTINGS -> intent = Intent(this, SettingsView::class.java)
         }
         if (key != "") {
             intent.putExtra(key, value)

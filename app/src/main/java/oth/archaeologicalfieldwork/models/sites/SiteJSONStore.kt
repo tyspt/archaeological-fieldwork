@@ -20,8 +20,6 @@ class SiteJSONStore : SiteStore, AnkoLogger {
         return Random().nextLong()
     }
 
-
-
     val context: Context
     var sites = mutableListOf<SiteModel>()
 

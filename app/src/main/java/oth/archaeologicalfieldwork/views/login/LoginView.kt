@@ -264,7 +264,7 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
             try {
                 // Simulate network access.
                 //Thread.sleep(2000)
-                return presenter.doUserLoginOrSignUp(mEmail, mPassword)
+                return presenter.doSignupOrLogin(mEmail, mPassword)
             } catch (e: InterruptedException) {
                 return false
             }

@@ -39,7 +39,6 @@
         <activity
                 android:name=".views.sitelist.SiteListView"
                 android:label="@string/title_all_sites">
-
             <!--
             Add theme information to show after the splash screen
             <meta-data android:name="theme" android:resource="@style/AppTheme"/>
@@ -65,8 +64,9 @@
                 android:parentActivityName=".views.sitelist.SiteListView">
         </activity>
         <activity
-                android:name=".views.settings.SettingsActivity"
-                android:label="@string/title_activity_settings">
+                android:name=".views.settings.SettingsView"
+                android:label="@string/title_activity_settings"
+                android:parentActivityName=".views.sitelist.SiteListView">
         </activity>
     </application>
 
