@@ -56,6 +56,7 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
         })
 
         email_sign_in_button.setOnClickListener { attemptLogin() }
+        //email_sign_up_button.setOnClickListener { presenter.doSignUp() }
     }
 
     private fun populateAutoComplete() {
@@ -148,7 +149,7 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
     }
 
     private fun isEmailValid(email: String): Boolean {
-        return email.contains("@")
+        return email.contains("@") && email.contains(".")
     }
 
     private fun isPasswordValid(password: String): Boolean {
@@ -159,7 +160,7 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
      * Shows the progress UI and hides the login form.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private fun showProgress(show: Boolean) {
+    override fun showProgress(show: Boolean) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
@@ -260,23 +261,13 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
         AsyncTask<Void, Void, Boolean>() {
 
         override fun doInBackground(vararg params: Void): Boolean? {
-            // TODO: attempt authentication against a network service.
-
             try {
                 // Simulate network access.
-                Thread.sleep(2000)
+                //Thread.sleep(2000)
+                return presenter.doUserLoginOrSignUp(mEmail, mPassword)
             } catch (e: InterruptedException) {
                 return false
             }
-
-            return DUMMY_CREDENTIALS
-                .map { it.split(":") }
-                .firstOrNull { it[0] == mEmail }
-                ?.let {
-                    // Account exists, return true if the password matches.
-                    it[1] == mPassword
-                }
-                ?: true
         }
 
         override fun onPostExecute(success: Boolean?) {
@@ -303,11 +294,5 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
          * Id to identity READ_CONTACTS permission request.
          */
         private val REQUEST_READ_CONTACTS = 0
-
-        /**
-         * A dummy authentication store containing known user names and passwords.
-         * TODO: remove after connecting to a real authentication system.
-         */
-        private val DUMMY_CREDENTIALS = arrayOf("foo@example.com:hello", "bar@example.com:world")
     }
 }

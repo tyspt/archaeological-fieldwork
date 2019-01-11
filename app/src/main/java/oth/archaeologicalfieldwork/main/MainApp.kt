@@ -4,13 +4,16 @@ import android.app.Application
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.helpers.SplashScreenHelper
-import oth.archaeologicalfieldwork.models.SiteJSONStore
-import oth.archaeologicalfieldwork.models.SiteModel
-import oth.archaeologicalfieldwork.models.SiteStore
+import oth.archaeologicalfieldwork.models.sites.SiteJSONStore
+import oth.archaeologicalfieldwork.models.sites.SiteModel
+import oth.archaeologicalfieldwork.models.sites.SiteStore
+import oth.archaeologicalfieldwork.models.users.UserJSONStore
+import oth.archaeologicalfieldwork.models.users.UserStore
 
 class MainApp : Application(), AnkoLogger {
 
     lateinit var sites: SiteStore
+    lateinit var users: UserStore
 
     override fun onCreate() {
         super.onCreate()
@@ -21,6 +24,10 @@ class MainApp : Application(), AnkoLogger {
         sites = SiteJSONStore(applicationContext)
         //sites = FieldStoreRoom(applicationContext)
         //sites = PlacemarkFireStore(applicationContext)
+
+        users = UserJSONStore(applicationContext)
+
+
 
         if (sites.findAll().isEmpty()) {
             sites.create(

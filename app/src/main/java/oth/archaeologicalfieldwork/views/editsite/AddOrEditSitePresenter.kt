@@ -7,8 +7,8 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.showImagePicker
-import oth.archaeologicalfieldwork.models.Location
-import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.models.sites.Location
+import oth.archaeologicalfieldwork.models.sites.SiteModel
 import oth.archaeologicalfieldwork.views.*
 
 class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {

@@ -13,7 +13,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.helpers.checkLocationPermissions
 import oth.archaeologicalfieldwork.helpers.isPermissionGranted
-import oth.archaeologicalfieldwork.models.Location
+import oth.archaeologicalfieldwork.models.sites.Location
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
 import kotlin.math.abs

@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.models
+package oth.archaeologicalfieldwork.models.sites
 
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info

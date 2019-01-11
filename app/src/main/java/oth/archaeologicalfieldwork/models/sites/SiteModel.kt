@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.models
+package oth.archaeologicalfieldwork.models.sites
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

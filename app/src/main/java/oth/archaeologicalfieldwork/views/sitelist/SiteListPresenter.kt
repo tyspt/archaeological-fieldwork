@@ -1,6 +1,6 @@
 package oth.archaeologicalfieldwork.views.sitelist
 
-import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.models.sites.SiteModel
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
 import oth.archaeologicalfieldwork.views.VIEW

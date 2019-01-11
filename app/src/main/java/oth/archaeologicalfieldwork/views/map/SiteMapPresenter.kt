@@ -7,7 +7,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.models.sites.SiteModel
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
 import oth.archaeologicalfieldwork.views.VIEW

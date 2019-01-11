@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card_content_site.view.*
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.readImageFromPath
-import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.models.sites.SiteModel
 import java.lang.Math.abs
 
 

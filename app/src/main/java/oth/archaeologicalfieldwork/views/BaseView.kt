@@ -5,8 +5,8 @@ import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import org.jetbrains.anko.AnkoLogger
-import oth.archaeologicalfieldwork.models.Location
-import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.models.sites.Location
+import oth.archaeologicalfieldwork.models.sites.SiteModel
 import oth.archaeologicalfieldwork.views.editlocation.EditLocationView
 import oth.archaeologicalfieldwork.views.editsite.AddOrEditSiteView
 import oth.archaeologicalfieldwork.views.login.LoginView
@@ -79,8 +79,5 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
     open fun displaySiteImages(site: SiteModel) {}
     open fun showSites(sites: List<SiteModel>) {}
     open fun updateLocation(location: Location) {}
-
-    open fun showProgress() {}
-    open fun hideProgress() {}
-
+    open fun showProgress(boolean: Boolean) {}
 }

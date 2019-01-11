@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.models
+package oth.archaeologicalfieldwork.models.sites
 
 interface SiteStore {
     fun findAll(): List<SiteModel>

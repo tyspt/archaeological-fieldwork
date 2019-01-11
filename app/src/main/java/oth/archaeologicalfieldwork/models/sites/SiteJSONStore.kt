@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.models
+package oth.archaeologicalfieldwork.models.sites
 
 import android.content.Context
 import com.google.gson.Gson
@@ -11,15 +11,16 @@ import oth.archaeologicalfieldwork.helpers.read
 import oth.archaeologicalfieldwork.helpers.write
 import java.util.*
 
-val JSON_FILE = "sites.json"
-val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
-val listType = object : TypeToken<java.util.ArrayList<SiteModel>>() {}.type
-
-fun generateRandomId(): Long {
-    return Random().nextLong()
-}
-
 class SiteJSONStore : SiteStore, AnkoLogger {
+    val JSON_FILE = "sites.json"
+    val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
+    val listType = object : TypeToken<java.util.ArrayList<SiteModel>>() {}.type
+
+    fun generateRandomId(): Long {
+        return Random().nextLong()
+    }
+
+
 
     val context: Context
     var sites = mutableListOf<SiteModel>()

@@ -6,7 +6,7 @@ import android.widget.Toast
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
-import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.models.sites.SiteModel
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
 import oth.archaeologicalfieldwork.views.VIEW

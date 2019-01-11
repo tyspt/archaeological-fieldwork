@@ -11,8 +11,8 @@ import kotlinx.android.synthetic.main.content_edit_site.*
 import org.jetbrains.anko.AnkoLogger
 import oth.archaeologicalfieldwork.R
 import oth.archaeologicalfieldwork.helpers.readImageFromPath
-import oth.archaeologicalfieldwork.models.Location
-import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.models.sites.Location
+import oth.archaeologicalfieldwork.models.sites.SiteModel
 import oth.archaeologicalfieldwork.views.BaseView
 import java.lang.Math.abs
 import java.text.SimpleDateFormat

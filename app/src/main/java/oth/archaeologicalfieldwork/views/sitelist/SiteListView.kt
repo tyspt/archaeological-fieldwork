@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_sitelist.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
-import oth.archaeologicalfieldwork.models.SiteModel
+import oth.archaeologicalfieldwork.models.sites.SiteModel
 import oth.archaeologicalfieldwork.views.BaseView
 
 class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
