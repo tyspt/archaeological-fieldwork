@@ -21,7 +21,6 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         setContentView(R.layout.activity_sitelist)
 
         init(toolbar_main, false)
-        toolbar_main.title = resources.getString(R.string.title_all_sites)
 
         info("Sites List Activity started..")
 
@@ -51,11 +50,16 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         return true
     }
 
+    override fun onBackPressed() {
+        this.finishAffinity()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             //R.id.item_add -> presenter.doAddPlacemark()
             R.id.menu_sites_map -> presenter.doShowSiteMap()
-            R.id.menu_settings -> true
+            R.id.menu_settings -> true //todo add settings page
+            R.id.menu_logout -> presenter.doLogout()
             else -> super.onOptionsItemSelected(item)
         }
         return super.onOptionsItemSelected(item)

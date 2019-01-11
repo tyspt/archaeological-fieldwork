@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Archaeological Fieldwork</string>
 
+    <string name="title_activity_login">Signup/Login to Sites</string>
     <string name="title_all_sites">All Sites</string>
     <string name="title_show_site">Show Site</string>
     <string name="title_activity_add_or_edit_site_view">Edit Site</string>
@@ -36,5 +37,18 @@
     <string name="button_text_add_notes">Add Notes</string>
     <string name="button_text_add_location">Add Location</string>
     <string name="button_text_change_location">Change Location</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign up / Login</string>
+    <string name="action_sign_in_short">Sign in</string>
+
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="action_logout">Logout</string>
 
 </resources>

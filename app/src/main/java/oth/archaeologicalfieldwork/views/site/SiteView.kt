@@ -13,6 +13,7 @@ import oth.archaeologicalfieldwork.helpers.readImageFromPath
 import oth.archaeologicalfieldwork.models.Location
 import oth.archaeologicalfieldwork.models.SiteModel
 import oth.archaeologicalfieldwork.views.BaseView
+import java.lang.Math.abs
 
 class SiteView : BaseView(), AnkoLogger {
 
@@ -67,7 +68,7 @@ class SiteView : BaseView(), AnkoLogger {
     }
 
     override fun updateLocation(location: Location) {
-        if (location.lng != 0.0) {
+        if (abs(location.lng) > 0.001) {
             this.site.location = location
             location_info_text_show.visibility = View.VISIBLE
             location_info_text_show.text = resources.getString(

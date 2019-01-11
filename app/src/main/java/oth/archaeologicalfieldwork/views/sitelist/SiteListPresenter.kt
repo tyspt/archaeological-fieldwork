@@ -24,4 +24,8 @@ class SiteListPresenter(view: BaseView) : BasePresenter(view) {
     fun loadSites() {
         view?.showSites(app.sites.findAll())
     }
+
+    fun doLogout() {
+        view?.navigateTo(VIEW.LOGIN)
+    }
 }
