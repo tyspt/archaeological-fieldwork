@@ -1,30 +1,44 @@
 package oth.archaeologicalfieldwork.views.sitelist
 
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.startActivityForResult
-import oth.archaeologicalfieldwork.main.MainApp
-import oth.archaeologicalfieldwork.models.SiteModel
-import oth.archaeologicalfieldwork.views.editsite.EditSiteView
-import oth.archaeologicalfieldwork.views.site.SiteView
+import oth.archaeologicalfieldwork.models.sites.SiteModel
+import oth.archaeologicalfieldwork.views.BasePresenter
+import oth.archaeologicalfieldwork.views.BaseView
+import oth.archaeologicalfieldwork.views.VIEW
 
-class SiteListPresenter(val view: SiteListView) {
-    var app: MainApp
+class SiteListPresenter(view: BaseView) : BasePresenter(view) {
 
-    init {
-        app = view.application as MainApp
-    }
-
-    fun getSite() = app.sites.findAll()
+    fun getSites() = app.sites?.findAll()
 
     fun doAddSite() {
-        view.startActivityForResult<EditSiteView>(0)
+        view?.navigateTo(VIEW.ADD_OR_EDIT_SITE)
     }
 
     fun doShowOneSite(site: SiteModel) {
-        view.startActivityForResult(view.intentFor<SiteView>().putExtra("site_show", site), 0)
+        view?.navigateTo(VIEW.SHOW_SITE, 0, "site_show", site)
     }
 
     fun doShowSiteMap() {
-        //editSiteView.startActivity<SiteMapsActivity>()
+        view?.navigateTo(VIEW.MAPS)
+    }
+
+    fun loadAllSites() {
+        val sites = app.sites?.findAll()
+        if (sites != null) {
+            view?.showSites(sites)
+        }
+    }
+
+    fun doLogout() {
+        app.session.clearSession()
+        app.sites = null
+        view?.navigateTo(VIEW.LOGIN)
+    }
+
+    fun doShowSettings() {
+        view?.navigateTo(VIEW.SETTINGS)
+    }
+
+    fun doCheckSessionInvalid(): Boolean {
+        return (app.session.getUsername().isNullOrEmpty())
     }
 }

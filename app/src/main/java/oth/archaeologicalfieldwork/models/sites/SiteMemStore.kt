@@ -1,4 +1,4 @@
-package oth.archaeologicalfieldwork.models
+package oth.archaeologicalfieldwork.models.sites
 
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -14,13 +14,13 @@ class SiteMemStore : SiteStore, AnkoLogger {
     private val sites = ArrayList<SiteModel>()
 
     override fun findAll(): List<SiteModel> {
+        logAll()
         return sites
     }
 
     override fun create(site: SiteModel) {
         site.id = getId()
         sites.add(site)
-        logAll()
     }
 
     override fun update(site: SiteModel) {
@@ -28,6 +28,10 @@ class SiteMemStore : SiteStore, AnkoLogger {
         if (foundSite != null) {
             foundSite.title = site.title
             foundSite.description = site.description
+            foundSite.hasVisited = site.hasVisited
+            foundSite.visitDate = site.visitDate
+            foundSite.location = site.location
+            foundSite.images = site.images
         }
     }
 

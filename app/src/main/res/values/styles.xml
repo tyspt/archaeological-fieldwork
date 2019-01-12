@@ -6,7 +6,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
 
-        <!-- <item name="android:windowBackground">@drawable/splashbg</item> -->
+        <item name="android:windowBackground">@drawable/splashbg</item>
 
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

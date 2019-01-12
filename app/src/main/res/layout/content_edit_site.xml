@@ -7,14 +7,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:showIn="@layout/activity_edit_site_view"
-            tools:context=".views.editsite.EditSiteView">
+            tools:showIn="@layout/activity_edit_site"
+            tools:context=".views.editsite.AddOrEditSiteView">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                                                        android:layout_height="wrap_content">
         <EditText
-                android:id="@+id/site_title"
+                android:id="@+id/site_title_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
@@ -33,75 +33,97 @@
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="@+id/site_title"
-                app:layout_constraintEnd_toEndOf="@+id/site_title"
+                app:layout_constraintStart_toStartOf="@+id/site_title_edit"
+                app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
                 android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/site_description"
+                app:layout_constraintBottom_toTopOf="@+id/site_description_edit"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/site_title">
+                app:layout_constraintTop_toBottomOf="@+id/site_title_edit">
+
             <RadioGroup
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:id="@+id/radioGroup" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/site_title"
-                    app:layout_constraintStart_toStartOf="@+id/site_title"
-                    app:layout_constraintEnd_toEndOf="@+id/site_title">
+                    android:id="@+id/radio_group_has_visited"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/site_title_edit"
+                    app:layout_constraintStart_toStartOf="@+id/site_title_edit"
+                    app:layout_constraintEnd_toEndOf="@+id/site_title_edit">
                 <RadioButton
                         android:text="@string/visited_text"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content" android:id="@+id/radio_visited" android:layout_weight="1"/>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radio_visited"
+                        android:layout_weight="1"/>
                 <RadioButton
                         android:text="@string/not_visited_text"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content" android:id="@+id/radio_not_visited"
-                        android:layout_weight="1" android:checked="true"/>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radio_not_visited"
+                        android:layout_weight="1"
+                        android:checked="true"/>
             </RadioGroup>
+
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="date"
                     android:ems="10"
-                    android:id="@+id/visit_date"
+                    android:id="@+id/visit_date_edit"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:visibility="gone"
                     android:hint="@string/hint_siteVisitedDate"
-                    app:layout_constraintEnd_toEndOf="@+id/site_title"
-                    app:layout_constraintStart_toStartOf="@+id/site_title"
+                    app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
+                    app:layout_constraintStart_toStartOf="@+id/site_title_edit"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup"/>
+                    app:layout_constraintTop_toBottomOf="@+id/radio_group_has_visited"/>
         </LinearLayout>
 
         <EditText
-                android:id="@+id/site_description"
+                android:id="@+id/site_description_edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:ems="10"
                 android:hint="@string/hint_siteDescription"
                 tools:layout_editor_absoluteY="170dp"
-                app:layout_constraintStart_toStartOf="@+id/site_title"
-                app:layout_constraintEnd_toEndOf="@+id/site_title"
+                app:layout_constraintStart_toStartOf="@+id/site_title_edit"
+                app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
                 app:layout_constraintTop_toBottomOf="@+id/layout_visited_group"/>
 
+        <TextView android:text="@string/location_text"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/location_info_text_edit"
+                  android:layout_marginTop="8dp"
+                  android:textSize="12sp"
+                  android:textColor="@android:color/darker_gray"
+                  android:visibility="gone"
+                  app:layout_constraintTop_toBottomOf="@+id/site_description_edit"
+                  app:layout_constraintStart_toStartOf="@+id/site_title_edit"
+                  app:layout_constraintEnd_toEndOf="@+id/site_title_edit"/>
         <Button
-                android:id="@+id/button_set_location"
+                android:id="@+id/btn_set_location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/button_setLocation"
-                app:layout_constraintEnd_toEndOf="@+id/site_title"
-                app:layout_constraintStart_toStartOf="@+id/site_title"
+                android:text="@string/button_text_add_location"
+                app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
+                app:layout_constraintStart_toStartOf="@+id/site_title_edit"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/site_description"
+                app:layout_constraintTop_toBottomOf="@+id/location_info_text_edit"
                 android:layout_marginTop="8dp"/>
+
         <HorizontalScrollView
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:scrollbars="none"
-                app:layout_constraintStart_toStartOf="@+id/site_title"
+                app:layout_constraintStart_toStartOf="@+id/site_title_edit"
                 android:id="@+id/horizontalScrollView"
-                app:layout_constraintEnd_toEndOf="@+id/site_title"
-                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/button_set_location">
+                app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/btn_set_location">
 
-            <LinearLayout android:id="@+id/site_image_gallery"
+            <LinearLayout android:id="@+id/site_image_gallery_edit"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:orientation="horizontal">
@@ -116,26 +138,15 @@
         </HorizontalScrollView>
 
         <Button
-                android:id="@+id/choose_image"
+                android:id="@+id/btn_choose_image"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/button_addImage"
-                app:layout_constraintEnd_toEndOf="@+id/site_title"
-                app:layout_constraintStart_toStartOf="@+id/site_title"
+                android:text="@string/button_text_add_image"
+                app:layout_constraintEnd_toEndOf="@+id/site_title_edit"
+                app:layout_constraintStart_toStartOf="@+id/site_title_edit"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
                 android:layout_marginTop="16dp"/>
-
-        <Button
-                android:id="@+id/add_notes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/button_addNotes"
-                app:layout_constraintEnd_toEndOf="@+id/site_title"
-                app:layout_constraintStart_toStartOf="@+id/site_title"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/choose_image"
-                android:layout_marginTop="8dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

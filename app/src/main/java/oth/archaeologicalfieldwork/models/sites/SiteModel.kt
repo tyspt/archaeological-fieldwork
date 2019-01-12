@@ -1,9 +1,7 @@
-package oth.archaeologicalfieldwork.models
+package oth.archaeologicalfieldwork.models.sites
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import java.util.*
-import kotlin.collections.ArrayList
 
 @Parcelize
 data class SiteModel(
@@ -11,15 +9,16 @@ data class SiteModel(
     var title: String = "",
     var description: String = "",
     var hasVisited: Boolean = false,
-    var visitDate: Date = Date(0L),
+    var visitDate: String = "",
     var images: ArrayList<String> = ArrayList(),
-    var location: Location = Location()
+    var location: Location = Location(),
+    var isFavorite: Boolean = false
 ) : Parcelable
 
 @Parcelize
 data class Location(
     var lat: Double = 0.0,
     var lng: Double = 0.0,
-    var zoom: Float = 0f
+    var zoom: Float = 11f
 ) : Parcelable
 
