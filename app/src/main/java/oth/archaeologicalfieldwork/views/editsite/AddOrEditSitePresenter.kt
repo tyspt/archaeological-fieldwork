@@ -32,12 +32,12 @@ class AddOrEditSitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
                 .show() // having issue with anko.toast(), using the traditional way here
         } else {
             if (edit) {
-                app.sites.update(site)
+                app.sites?.update(site)
                 val resultIntent = Intent()
                 resultIntent.putExtra("changed_site", site)
                 view?.setResult(Activity.RESULT_OK, resultIntent)
             } else {
-                app.sites.create(site)
+                app.sites?.create(site)
             }
             view?.finish()
         }

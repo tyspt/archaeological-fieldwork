@@ -55,8 +55,8 @@
 
     <string name="pref_title_change_username">Change Username</string>
     <string name="pref_title_change_password">Change Password</string>
-    <string name="pref_title_statistics">Site Statistics</string>
-    <string name="pref_summary_statistics">total num of sites: %1$s\nnumber of sites visited: %2$s</string>
+    <string name="pref_title_statistics">Statistics</string>
+    <string name="pref_summary_statistics">Total num of sites: %1$s\nNumber of sites visited: %2$s</string>
     <string name="action_show_favorites">Show favorite sites</string>
     <string name="action_show_all">Show all sites</string>
 </resources>

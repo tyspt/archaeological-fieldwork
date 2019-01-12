@@ -20,9 +20,9 @@ class SiteMapPresenter(view: BaseView) : BasePresenter(view) {
         map.uiSettings.isZoomControlsEnabled = true
 
         val markers = ArrayList<Marker>()
-        val sites = app.sites.findAll()
+        val sites = app.sites?.findAll()
 
-        sites.forEach {
+        sites?.forEach {
             if (abs(it.location.lng) > 0.0001) {
                 val loc = LatLng(it.location.lat, it.location.lng)
                 val options = MarkerOptions().title(it.title).position(loc)
@@ -52,6 +52,6 @@ class SiteMapPresenter(view: BaseView) : BasePresenter(view) {
     }
 
     override fun doActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        view?.showSites(app.sites.findAll())
+        view?.showSites(app.sites?.findAll())
     }
 }

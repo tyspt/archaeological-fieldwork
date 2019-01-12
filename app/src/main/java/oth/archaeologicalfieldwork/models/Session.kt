@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 
 
-class UserSession(context: Context) {
+class Session(context: Context) {
     var prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 
     fun setUsername(username: String) {

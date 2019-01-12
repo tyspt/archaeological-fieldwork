@@ -43,7 +43,7 @@ class SiteMapView : BaseView(), GoogleMap.OnMarkerClickListener, GoogleMap.OnInf
         info("info window clicked")
     }
 
-    override fun showSites(sites: List<SiteModel>) {
+    override fun showSites(sites: List<SiteModel>?) {
         presenter.doPopulateMap(map)
     }
 }

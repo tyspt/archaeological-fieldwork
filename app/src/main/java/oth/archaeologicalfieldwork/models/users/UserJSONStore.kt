@@ -20,7 +20,6 @@ class UserJSONStore : UserStore, AnkoLogger {
         return Random().nextLong()
     }
 
-
     val context: Context
     var users = mutableListOf<UserModel>()
 
@@ -31,11 +30,6 @@ class UserJSONStore : UserStore, AnkoLogger {
         }
     }
 
-    override fun findAll(): List<UserModel> {
-        logAll()
-        return users
-    }
-
     internal fun logAll() {
         users.forEach { info("$it") }
     }
@@ -43,26 +37,22 @@ class UserJSONStore : UserStore, AnkoLogger {
     override fun create(user: UserModel) {
         user.id = generateRandomId()
         users.add(user)
+        logAll()
         serialize()
     }
 
     override fun update(user: UserModel) {
-        val userList = findAll() as ArrayList<UserModel>
-        var foundUser = userList.find { p -> p.id == user.id }
+        var foundUser = users.find { p -> p.id == user.id }
         if (foundUser != null) {
-            foundUser.email = user.email
+            foundUser.username = user.username
             foundUser.password = user.password
-            //todo logic in update user
         }
+        logAll()
         serialize()
     }
 
-    override fun findById(id: Long): UserModel? {
-        return users.find { it.id == id }
-    }
-
-    override fun findByName(username: String): UserModel? {
-        return users.find { it.email == username }
+    override fun findByName(username: String?): UserModel? {
+        return users.find { it.username == username }
     }
 
     private fun serialize() {

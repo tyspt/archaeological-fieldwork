@@ -9,10 +9,11 @@ import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.helpers.exists
 import oth.archaeologicalfieldwork.helpers.read
 import oth.archaeologicalfieldwork.helpers.write
+import oth.archaeologicalfieldwork.main.MainApp
 import java.util.*
 
-class SiteJSONStore : SiteStore, AnkoLogger {
-    val JSON_FILE = "sites.json"
+class SiteJSONStore(val context: Context) : SiteStore, AnkoLogger {
+    var JSON_FILE = ""
     val gsonBuilder = GsonBuilder().setPrettyPrinting().create()
     val listType = object : TypeToken<java.util.ArrayList<SiteModel>>() {}.type
 
@@ -20,13 +21,17 @@ class SiteJSONStore : SiteStore, AnkoLogger {
         return Random().nextLong()
     }
 
-    val context: Context
     var sites = mutableListOf<SiteModel>()
 
-    constructor (context: Context) {
-        this.context = context
+    init {
+        val username = (context as MainApp).session.getUsername()
+        JSON_FILE = "sites_$username.json"
+
         if (exists(context, JSON_FILE)) {
+            info("JSON $JSON_FILE exists")
             deserialize()
+        } else {
+            info("JSON $JSON_FILE not exist")
         }
     }
 

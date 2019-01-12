@@ -1,6 +1,7 @@
 package oth.archaeologicalfieldwork.views.login
 
 import org.jetbrains.anko.AnkoLogger
+import oth.archaeologicalfieldwork.models.sites.SiteJSONStore
 import oth.archaeologicalfieldwork.models.users.UserModel
 import oth.archaeologicalfieldwork.views.BasePresenter
 import oth.archaeologicalfieldwork.views.BaseView
@@ -17,12 +18,17 @@ class LoginPresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
         if (user != null) {
             result = (user.password == mPassword)
         } else {
-            user = UserModel(email = mEmail, password = mPassword)
+            user = UserModel(username = mEmail, password = mPassword)
             app.users.create(user)
             result = true
         }
-        app.session.setUsername(user.email)
+
+        app.session.setUsername(user.username)
         app.session.setPassword(user.password)
+
+        //sites = SiteMemStore()
+        app.sites = SiteJSONStore(app.applicationContext)
+
         return result
     }
 

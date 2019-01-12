@@ -25,7 +25,7 @@ import oth.archaeologicalfieldwork.views.BaseView
 import java.util.*
 
 /**
- * A login screen that offers login via email/password
+ * A login screen that offers login via username/password
  *
  */
 class LoginView : BaseView(), LoaderCallbacks<Cursor> {
@@ -98,7 +98,7 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
 
     /**
      * Attempts to sign in or register the account specified by the login form.
-     * If there are form errors (invalid email, missing fields, etc.), the
+     * If there are form errors (invalid username, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
     private fun attemptLogin() {
@@ -124,7 +124,7 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
             cancel = true
         }
 
-        // Check for a valid email address.
+        // Check for a valid username address.
         if (TextUtils.isEmpty(emailStr)) {
             email.error = getString(R.string.error_field_required)
             focusView = email
@@ -203,14 +203,14 @@ class LoginView : BaseView(), LoaderCallbacks<Cursor> {
                 ContactsContract.Contacts.Data.CONTENT_DIRECTORY
             ), ProfileQuery.PROJECTION,
 
-            // Select only email addresses.
+            // Select only username addresses.
             ContactsContract.Contacts.Data.MIMETYPE + " = ?", arrayOf(
                 ContactsContract.CommonDataKinds.Email
                     .CONTENT_ITEM_TYPE
             ),
 
-            // Show primary email addresses first. Note that there won't be
-            // a primary email address if the user hasn't specified one.
+            // Show primary username addresses first. Note that there won't be
+            // a primary username address if the user hasn't specified one.
             ContactsContract.Contacts.Data.IS_PRIMARY + " DESC"
         )
     }

@@ -79,7 +79,7 @@ abstract class BaseView : AppCompatActivity(), AnkoLogger {
 
     open fun showSiteInformation(site: SiteModel) {}
     open fun displaySiteImages(site: SiteModel) {}
-    open fun showSites(sites: List<SiteModel>) {}
+    open fun showSites(sites: List<SiteModel>?) {}
     open fun updateLocation(location: Location) {}
     open fun showProgress(boolean: Boolean) {}
 }

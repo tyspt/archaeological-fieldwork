@@ -36,15 +36,16 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         } else {
             showSites(presenter.getSites())
         }
-
-        btn_add_list.setOnClickListener { view ->
+        btn_add_list.setOnClickListener {
             presenter.doAddSite()
         }
     }
 
-    override fun showSites(sites: List<SiteModel>) {
-        recyclerView.adapter = SiteAdapter(sites, this)
-        recyclerView.adapter?.notifyDataSetChanged()
+    override fun showSites(sites: List<SiteModel>?) {
+        if (sites != null) {
+            recyclerView.adapter = SiteAdapter(sites, this)
+            recyclerView.adapter?.notifyDataSetChanged()
+        }
     }
 
     override fun onSiteClick(site: SiteModel) {
@@ -83,7 +84,7 @@ class SiteListView : BaseView(), AnkoLogger, SiteClickListener {
         toolbar_main.title = resources.getString(R.string.title_favorite_sites)
         menu.findItem(menu_favorite_sites_only).isVisible = false
         menu.findItem(menu_show_all_sites).isVisible = true
-        showSites(presenter.getSites().filter { it.isFavorite })
+        showSites(presenter.getSites()?.filter { it.isFavorite })
     }
 
     private fun showAllSites() {

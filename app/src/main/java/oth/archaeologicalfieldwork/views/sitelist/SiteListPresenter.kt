@@ -7,7 +7,7 @@ import oth.archaeologicalfieldwork.views.VIEW
 
 class SiteListPresenter(view: BaseView) : BasePresenter(view) {
 
-    fun getSites() = app.sites.findAll()
+    fun getSites() = app.sites?.findAll()
 
     fun doAddSite() {
         view?.navigateTo(VIEW.ADD_OR_EDIT_SITE)
@@ -22,16 +22,19 @@ class SiteListPresenter(view: BaseView) : BasePresenter(view) {
     }
 
     fun loadAllSites() {
-        view?.showSites(app.sites.findAll())
+        val sites = app.sites?.findAll()
+        if (sites != null) {
+            view?.showSites(sites)
+        }
     }
 
     fun doLogout() {
         app.session.clearSession()
+        app.sites = null
         view?.navigateTo(VIEW.LOGIN)
     }
 
     fun doShowSettings() {
-
         view?.navigateTo(VIEW.SETTINGS)
     }
 

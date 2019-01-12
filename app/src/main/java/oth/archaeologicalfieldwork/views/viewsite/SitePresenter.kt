@@ -31,13 +31,13 @@ class SitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
     }
 
     fun doDeleteSite(site: SiteModel) {
-        app.sites.delete(site)
+        app.sites?.delete(site)
         view?.finish()
     }
 
     fun doFlipFavorite(site: SiteModel) {
         site.isFavorite = !site.isFavorite
-        app.sites.update(site)
+        app.sites?.update(site)
         view?.showSiteInformation(site)
 
         if (site.isFavorite) {

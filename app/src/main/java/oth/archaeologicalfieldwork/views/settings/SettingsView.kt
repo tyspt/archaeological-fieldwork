@@ -53,21 +53,30 @@ class SettingsFragment : PreferenceFragmentCompat(), AnkoLogger {
 
         prefStatistics.summary = activity?.resources?.getString(
             R.string.pref_summary_statistics,
-            app.sites.findAll().size.toString(),
-            app.sites.findAll().count {
+            app.sites?.findAll()?.size.toString(),
+            app.sites?.findAll()?.count {
                 it.hasVisited
             }.toString()
         )
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         prefUsername.setOnPreferenceChangeListener { preference, newValue ->
-            preference.summary = newValue.toString()
+            val user = app.users.findByName(app.session.getUsername())
+            user?.username = newValue.toString()
+            app.users.update(user!!)
+            app.session.setUsername(user.username)
+            preference.summary = user.username
             true
         }
 
         prefPassword.setOnPreferenceChangeListener { preference, newValue ->
-            preference.summary = newValue.toString()
+            val user = app.users.findByName(app.session.getUsername())
+            user?.password = newValue.toString()
+            app.users.update(user!!)
+            app.session.setPassword(user.password)
+            preference.summary = user.password
             true
         }
         return super.onCreateView(inflater, container, savedInstanceState)
