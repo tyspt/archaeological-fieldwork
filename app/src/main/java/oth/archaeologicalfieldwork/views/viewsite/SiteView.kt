@@ -95,6 +95,7 @@ class SiteView : BaseView(), AnkoLogger {
             R.id.menu_delete -> presenter.doDeleteSite(site)
             R.id.menu_favorite -> presenter.doFlipFavorite(site)
             R.id.menu_navigate -> presenter.doStartNavigation(site)
+            R.id.menu_share -> presenter.doShareSite(site)
         }
         return super.onOptionsItemSelected(item)
     }

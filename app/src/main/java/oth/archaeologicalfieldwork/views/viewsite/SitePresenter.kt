@@ -3,6 +3,7 @@ package oth.archaeologicalfieldwork.views.viewsite
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
+import com.google.android.gms.maps.model.LatLng
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import oth.archaeologicalfieldwork.R
@@ -68,6 +69,16 @@ class SitePresenter(view: BaseView) : BasePresenter(view), AnkoLogger {
                 view?.showSiteInformation(site)
             }
         }
+    }
+
+    fun doShareSite(site: SiteModel) {
+        val location = LatLng(site.location.lat, site.location.lng).toString()
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "${site.title}\n$location\n${site.description}")
+            type = "text/plain"
+        }
+        view?.startActivity(Intent.createChooser(sendIntent, view?.resources?.getText(R.string.send_to)))
     }
 
 

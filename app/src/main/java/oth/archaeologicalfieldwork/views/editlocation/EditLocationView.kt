@@ -59,7 +59,6 @@ class EditLocationView : BaseView(), GoogleMap.OnMarkerDragListener, OnMapReadyC
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_edit_location, menu)
-        //todo set marker to current location with a button
         return true
     }
 

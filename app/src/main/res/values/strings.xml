@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Archaeological Fieldwork</string>
 
-    <string name="title_activity_login">Sign up/Login to Sites</string>
+    <string name="title_activity_login">Sign up/ Login</string>
     <string name="title_all_sites">All Sites</string>
     <string name="title_favorite_sites">My Favorite Sites</string>
     <string name="title_show_site">Show Site</string>
@@ -59,4 +59,5 @@
     <string name="pref_summary_statistics">Total num of sites: %1$s\nNumber of sites visited: %2$s</string>
     <string name="action_show_favorites">Show favorite sites</string>
     <string name="action_show_all">Show all sites</string>
+    <string name="send_to">Send to</string>
 </resources>
